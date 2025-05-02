@@ -1,28 +1,33 @@
 ---
 title: "abstrackt"
-format: html
+author: 
+  - Ian Stettinger
+  - Nazar Demianyk
+  - Anastasiia Kopylova
+  - Luka Kotyshchuk
+  - Anna-Lena Petersen
+date: "`r format(Sys.Date(), '%d.%m.%Y')`"
+format:
+  html: default
+  pdf:
+    documentclass: article
+    papersize: a4
+    fontsize: 12pt
+    number-sections: true
 editor: visual
 ---
+<!-- GitHub-Info -->
+**GitHub Repository:** https://github.com/NazarD01/SMNF2025-Aufsatz-GruppeA4.git
+**Commit Hash:** `r system("git rev-parse HEAD", intern = TRUE)`
 
-## Quarto
+# Einleitung
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+# Literaturübersicht
 
-## Running Code
+# Methode
 
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+# Ergebnisse
 
-```{r}
-1 + 1
-```
+# Diskussion
 
-You can add options to executable code like this
-
-```{r}
-#| echo: false
-2 * 2
-```
-
-The `echo: false` option disables the printing of code (only output is displayed).
-
-Ian
+# Code of Conduct
