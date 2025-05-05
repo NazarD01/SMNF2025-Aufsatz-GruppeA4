@@ -6,7 +6,8 @@ author:
   - Anastasiia Kopylova
   - Luka Kotyshchuk
   - Anna-Lena Petersen
-date: "`r format(Sys.Date(), '%d.%m.%Y')`"
+date: today
+lang: de
 format:
   html: default
   pdf:
@@ -14,11 +15,15 @@ format:
     papersize: a4
     fontsize: 12pt
     number-sections: true
-editor: visual
+execute:
+  echo: false
+  editor: visual
 ---
 <!-- GitHub-Info -->
 **GitHub Repository:** https://github.com/NazarD01/SMNF2025-Aufsatz-GruppeA4.git
-**Commit Hash:** `r system("git rev-parse HEAD", intern = TRUE)`
+```{r}
+cat("**Commit Hash:**", system("git rev-parse HEAD", intern = TRUE))
+```
 
 # Einleitung
 
