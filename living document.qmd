@@ -1,0 +1,47 @@
+---
+title: "Arbeitstitel - Living-Document"
+author:
+  - Anna-Lena Petersen
+  - Ian Stettinger
+  - Vorname Nachname
+  - Vorname Nachname
+  - Vorname Nachname
+date: today
+format:
+  html: default
+  pdf:
+    documentclass: article
+    papersize: a4
+    fontsize: 12pt
+csl: apa.csl
+bibliography: references.bib
+---
+
+**Repository:**
+
+**Commit-Hash:**
+
+# Code of Conduct
+
+-   **Umgang mit Feedback:** Wir begegnen Feedback respektvoll und offen. Unterschiedliche Perspektiven sind willkommen.
+-   **Arbeitsaufteilung:** Aufgaben werden fair nach zeitlichen Ressourcen und Kompetenzen verteilt.
+-   **Termine:** Verbindliche Absprachen zu Abgabefristen und Treffen werden eingehalten oder rechtzeitig kommuniziert.
+-   **Wissenschaftliche Integrität:** Wir arbeiten transparent, zitieren korrekt und vermeiden jede Form von Plagiat.
+-   **Datenschutz:** Alle personenbezogenen Daten werden vertraulich behandelt.
+-   **AI Tools:** Bei Nutzung von AI-Tools (z. B. ChatGPT) geben wir dies transparent an und nutzen sie unterstützend, nicht ersetzend.
+
+# 1. Einleitung
+
+# 2. Literaturübersicht
+
+**Quelle 1:**
+
+**Quelle 2:**
+
+**Quelle 3:**
+
+# 3. Methode
+
+# 4. Ergebnisse
+
+# 5. Diskussion
