@@ -1,5 +1,5 @@
 ---
-title: "abstrackt"
+title: "Abstract"
 author: 
   - Ian Stettinger
   - Nazar Demianyk
