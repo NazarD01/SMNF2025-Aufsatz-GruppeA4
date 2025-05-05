@@ -40,3 +40,34 @@ cat("**Commit Hash:**", system("git rev-parse HEAD", intern = TRUE))
 # Diskussion
 
 # Code of Conduct
+## Umgang mit Feedback, unterschiedlichen Perspektiven und Meinungsverschiedenheiten
+
+In unserer Gruppe möchten wir demokratische Prinzipien, gegenseitigen Respekt und Offenheit wahren.  
+Konstruktive Kritik wird als Chance zur Verbesserung gesehen und bei weiteren Gruppenentscheidungen berücksichtigt.  
+Die Meinungen aller Gruppenmitglieder werden ernst genommen und gemeinsam diskutiert.  
+Entscheidungen orientieren sich am Mehrheitsprinzip, wobei unterschiedliche Perspektiven ebenfalls Beachtung finden.
+
+## Faire Aufteilung der Arbeitslast
+
+Wir achten auf eine faire Aufgabenverteilung nach Fähigkeiten und Verfügbarkeit.  
+Zuständigkeiten werden klar geregelt und regelmäßig überprüft.
+
+## Verhalten in Bezug auf vereinbarte und verpflichtende Termine
+
+Alle Teammitglieder verpflichten sich, zugesagte Aufgaben rechtzeitig zu erledigen.  
+Verzögerungen oder Schwierigkeiten werden frühzeitig kommuniziert, um gemeinsam Lösungen zu finden.
+
+## Einhaltung der wissenschaftlichen Integrität
+
+Wir verpflichten uns zur Einhaltung der Grundsätze wissenschaftlichen Arbeitens, insbesondere zu Ehrlichkeit, Objektivität und Transparenz.  
+Plagiate, Datenmanipulation sowie das Verschweigen von Interessenskonflikten sind ausgeschlossen.
+
+## Verpflichtung zum Schutz von Daten und zur Wahrung ihrer Vertraulichkeit
+
+Sensible Daten – insbesondere personenbezogene Informationen – werden vertraulich behandelt und nicht ohne Zustimmung weitergegeben.  
+Die gesetzlichen Vorgaben zum Datenschutz werden beachtet.
+
+## Nutzung und Kennzeichnung von AI Tools (z.B. ChatGPT)
+
+Die Nutzung erfolgt ausschließlich zur sprachlichen Überarbeitung, für Inspirationen oder zur strukturellen Unterstützung.  
+Die Nutzung solcher Hilfsmittel wird im Sinne wissenschaftlicher Transparenz kenntlich gemacht.
