@@ -1,11 +1,11 @@
 ---
 title: "Abstract"
 author: 
-  - Ian Stettinger
   - Nazar Demianyk
   - Anastasiia Kopylova
   - Luka Kotyshchuk
   - Anna-Lena Petersen
+  - Ian Stettinger
 date: today
 lang: de
 format:
@@ -18,6 +18,8 @@ format:
 execute:
   echo: false
   editor: visual
+bibliography: references.bib
+csl: https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl
 ---
 
 <!-- GitHub-Info -->
@@ -25,13 +27,22 @@ execute:
 **GitHub Repository:** https://github.com/NazarD01/SMNF2025-Aufsatz-GruppeA4.git
 
 ```{r}
-cat("**Commit Hash:**", system("git rev-parse HEAD", intern = TRUE))
+cat("Commit Hash:", system("git rev-parse HEAD", intern = TRUE))
 ```
 
 # Einleitung
 
 # Literaturübersicht
 
+Im Rahmen der Literaturrecherche wurden drei wissenschaftliche Beiträge identifiziert, die wesentliche Anknüpfungspunkte zu den Forschungsfragen rund um Vertrauen in KI-gestützte Desinformations-Erkennung bieten. Sie beleuchten unterschiedliche Perspektiven – von individuellen Wahrnehmungen bis hin zu gesellschaftlich-regulatorischen Rahmenbedingungen.
+
+@hwang2017 zeigt, wie digitale Desinformation demokratische Prozesse untergräbt und wie technologische Fortschritte – insbesondere KI und Machine Learning – die Glaubwürdigkeit von Falschmeldungen erhöhen.
+
+Iglesias Keller et al. warnen, dass staatliche Strategien nur dann Vertrauen schaffen, wenn KI-basierte Systeme transparent, grundrechtskonform und im Zusammenspiel mehrerer Akteure implementiert werden. Überzogene Sanktionen oder Intransparenz untergraben das Vertrauen. @iglesiaskeller2024.
+
+Wang belegt anhand einer groß angelegten US-Umfrage, dass individuelles Algorithmusvertrauen die Akzeptanz KI-gestützter Moderation maßgeblich prägt; liberal Eingestellte bewerten sie tendenziell positiver, technisch Versierte häufig kritischer [@wang2023].
+
+Zusammenfassend verdeutlichen die drei Arbeiten, dass Vertrauen in KI-gestützte Desinformationsbekämpfung nicht nur von technischer Funktionalität, sondern auch von gesellschaftlichen, politischen und kommunikativen Rahmenbedingungen abhängt. Dieses Zusammenspiel ist entscheidend für die Weiterentwicklung und Akzeptanz von KI-Tools.
 
 # Methode
 
@@ -40,34 +51,36 @@ cat("**Commit Hash:**", system("git rev-parse HEAD", intern = TRUE))
 # Diskussion
 
 # Code of Conduct
+
 ## Umgang mit Feedback, unterschiedlichen Perspektiven und Meinungsverschiedenheiten
 
-In unserer Gruppe möchten wir demokratische Prinzipien, gegenseitigen Respekt und Offenheit wahren.  
-Konstruktive Kritik wird als Chance zur Verbesserung gesehen und bei weiteren Gruppenentscheidungen berücksichtigt.  
-Die Meinungen aller Gruppenmitglieder werden ernst genommen und gemeinsam diskutiert.  
+In unserer Gruppe möchten wir demokratische Prinzipien, gegenseitigen Respekt und Offenheit wahren.\
+Konstruktive Kritik wird als Chance zur Verbesserung gesehen und bei weiteren Gruppenentscheidungen berücksichtigt.\
+Die Meinungen aller Gruppenmitglieder werden ernst genommen und gemeinsam diskutiert.\
 Entscheidungen orientieren sich am Mehrheitsprinzip, wobei unterschiedliche Perspektiven ebenfalls Beachtung finden.
 
 ## Faire Aufteilung der Arbeitslast
 
-Wir achten auf eine faire Aufgabenverteilung nach Fähigkeiten und Verfügbarkeit.  
+Wir achten auf eine faire Aufgabenverteilung nach Fähigkeiten und Verfügbarkeit.\
 Zuständigkeiten werden klar geregelt und regelmäßig überprüft.
 
 ## Verhalten in Bezug auf vereinbarte und verpflichtende Termine
 
-Alle Teammitglieder verpflichten sich, zugesagte Aufgaben rechtzeitig zu erledigen.  
+Alle Teammitglieder verpflichten sich, zugesagte Aufgaben rechtzeitig zu erledigen.\
 Verzögerungen oder Schwierigkeiten werden frühzeitig kommuniziert, um gemeinsam Lösungen zu finden.
 
 ## Einhaltung der wissenschaftlichen Integrität
 
-Wir verpflichten uns zur Einhaltung der Grundsätze wissenschaftlichen Arbeitens, insbesondere zu Ehrlichkeit, Objektivität und Transparenz.  
+Wir verpflichten uns zur Einhaltung der Grundsätze wissenschaftlichen Arbeitens, insbesondere zu Ehrlichkeit, Objektivität und Transparenz.\
 Plagiate, Datenmanipulation sowie das Verschweigen von Interessenskonflikten sind ausgeschlossen.
 
 ## Verpflichtung zum Schutz von Daten und zur Wahrung ihrer Vertraulichkeit
 
-Sensible Daten – insbesondere personenbezogene Informationen – werden vertraulich behandelt und nicht ohne Zustimmung weitergegeben.  
+Sensible Daten – insbesondere personenbezogene Informationen – werden vertraulich behandelt und nicht ohne Zustimmung weitergegeben.\
 Die gesetzlichen Vorgaben zum Datenschutz werden beachtet.
 
 ## Nutzung und Kennzeichnung von AI Tools (z.B. ChatGPT)
 
-Die Nutzung erfolgt ausschließlich zur sprachlichen Überarbeitung, für Inspirationen oder zur strukturellen Unterstützung.  
+Die Nutzung erfolgt ausschließlich zur sprachlichen Überarbeitung, für Inspirationen oder zur strukturellen Unterstützung.\
 Die Nutzung solcher Hilfsmittel wird im Sinne wissenschaftlicher Transparenz kenntlich gemacht.
+
