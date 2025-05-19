@@ -45,8 +45,43 @@ Wang belegt anhand einer groß angelegten US-Umfrage, dass individuelles Algorit
 Zusammenfassend verdeutlichen die drei Arbeiten, dass Vertrauen in KI-gestützte Desinformationsbekämpfung nicht nur von technischer Funktionalität, sondern auch von gesellschaftlichen, politischen und kommunikativen Rahmenbedingungen abhängt. Dieses Zusammenspiel ist entscheidend für die Weiterentwicklung und Akzeptanz von KI-Tools.
 
 # Methode
+## Qualitativer Forschungsansatz
+Wir wählten einen qualitativen Ansatz, weil unsere explorative Forschungsfrage ein vertieftes Verständnis bislang wenig untersuchter Nutzungsanforderungen verlangt. Neben technischen Dimensionen betrachten wir soziale, ethische und nutzer*innenbezogene Aspekte wie Vertrauen, Transparenz und Datenschutz – Faktoren, die stark kontextabhängig sind und sich am besten mit offenen Verfahren wie Interviews oder Fokusgruppen erfassen lassen. Diese Methoden ermöglichen es, auch unerwartete Perspektiven aufzudecken, die standardisierte Fragebögen nicht abbilden könnten.
+
+## Stichprobe
+Für unsere Erhebung rekrutierten wir zwei Personen unseres Alters (Convenience Sample). Junge Erwachsene, insbesondere Studierende, nutzen Künstliche Intelligenz (KI) regelmäßig und sind in sozialen Netzwerken hoch aktiv. Entsprechend häufig begegnen sie KI-generierten Inhalten, etwa im Nachrichtenkontext. Durch die Alters- und Lebenswelt­nähe erwarten wir reichhaltige, erfahrungsbasierte Einblicke in ihr Vertrauen und ihren Unterstützungsbedarf.
+
+## Datenerhebung
+Wir haben uns für persönliche Face-to-Face-Interviews entschieden. Zunächst haben wir die Personen, die wir interviewt haben, mit der Datenschutzerklärung und Einwilligungserklärung vertraut gemacht und sichergestellt, dass sie damit einverstanden sind. Nachdem sie dem Inhalt zugestimmt hatten, haben wir mit dem Interview begonnen. Die Fragen haben wir aus den zur Verfügung gestellten Materialien übernommen, teilweise jedoch angepasst oder präzisiert. Die beiden Interviews wurden mit einem Diktiergerät aufgenommen, anschließend mithilfe des KI-Dienstes „Whisper“ transkribiert und die Transkripte manuell korrigiert.
+
+## Datenanalyse
+Für die Analyse haben wir die Themenanalyse nach @braun_clarke gewählt. Sie besteht aus sechs Phasen, die wir schrittweise analysiert, beschrieben und zusammengefasst haben. Jede/r von uns codierte zunächst unabhängig. Im Anschluss führten wir die Codes zusammen und diskutierten Abweichungen, um Interpretationssicherheit zu gewährleisten. Dieses Vorgehen resultierte in drei zentralen Themen, die im folgenden Ergebnisabschnitt detailliert dargestellt werden.
 
 # Ergebnisse
+Wir haben zwei leitfadengestützte Interviews durchgeführt und mittels der Themenanalyse nach @braun_clarke ausgewertet. Befragt wurden zwei Personen aus der Zielgruppe junger Erwachsener, konkret Studierende. Die Auswahl dieser Personengruppe erscheint besonders geeignet im Hinblick auf unsere Forschungsfrage, da insbesondere Studierende nahezu täglich mit Künstlicher Intelligenz in Berührung kommen. Sei es im akademischen Kontext, zur Informationsbeschaffung oder zur Unterstützung bei alltäglichen Aufgaben.
+
+Diese regelmäßige Nutzung befähigt sie dazu, fundierte Einschätzungen hinsichtlich der Funktionsweise von KI sowie deren unterstützender Rolle und Einfluss auf die digitale Mediennutzung vorzunehmen. Relevanz erhält dies insbesondere im Kontext sozialer Netzwerke, die von der Mehrheit junger Menschen intensiv genutzt werden. Gerade in diesen digitalen Räumen spielt KI eine zunehmend zentrale Rolle bei der Verbreitung von Informationen, einschließlich potenziell irreführender oder falscher Inhalte.
+
+Studierende zeichnen sich durch eine hohe Affinität zu digitalen Technologien aus und sind daher sowohl potenziell von Desinformation betroffen als auch in der Lage, die Funktionslogiken algorithmischer Systeme zu reflektieren. Aus diesen Gründen war es für unsere Forschung zentral, die Perspektive junger Menschen zu berücksichtigen, da sie in besonderem Maße mit KI konfrontiert sind und individuell unterschiedliche Strategien im Umgang mit ihr entwickeln.
+
+| Thema | Definition | Zitate |
+|---|---|---|
+| Erklärbarkeit schafft Vertrauen | Transparente Offenlegung der KI-Entscheidungskriterien wird als essenziell eingestuft. | „Das System sollte logisch arbeiten und nachvollziehbar machen, weshalb es bestimmte Informationen auf eine bestimmte Weise eingeordnet hat.“ (P, Z.129-131) „Wenn ein Post Misinformation ist [...], es dann auch anzeigt, dass es Misinformation ist [...]." (P2, Z.72-75) |
+| Neutralität und Unabhängigkeit | KI muss als unparteiisch wahrgenommen werden. | „Es darf keinerlei äußeren Einfluss haben.“ (P, Z.132) „Insbesondere große Konzerne sollten nicht zu viel Einfluss darauf haben.“ (P, Z.174-176) |
+| Nutzerkontrolliertes Feedback | Nutzer*innen fordern die Kontrolle über KI-Interaktionen. | „Ich finde, sie sollte nur auf Anfrage erscheinen.“ (P, Z.147-148) „Mich stört bei vielen KIs in sozialen Medien [...], dass die die ganze Zeit angezeigt werden [...] aber genau wenn dann Misinformation im Post ist [...] dass man dann vielleicht eine kleine Anzeige hat, ‚Oh das könnte Misinformation sein‘ [...] und der dann zeigt, warum es Misinformationen sein könnte [...] und dass es strukturiert und übersichtlich ist und nicht zu überwältigend [...]" (P2, Z.116-124) |
+
+Die Analyse der Interviews verdeutlicht, dass das Vertrauen in KI gestützte Systeme zur Erkennung von Desinformation maßgeblich von verschiedenen voneinander abhängenden Faktoren beeinflusst wird. Zu den zentralen Aspekten zählen dabei Transparenz, Neutralität, Nutzerkontrolle sowie eine klar geregelte Verantwortungsstruktur.
+
+Im Hinblick auf die Transparenz erwarten Nutzer*innen, dass KI Systeme ihre Entscheidungen in nachvollziehbarer Weise erläutern können. Dies schließt insbesondere verständliche Begründungen, eine Offenlegung der Entscheidungsgrundlagen sowie transparente Quellenangaben mit ein. Eine solche technische Nachvollziehbarkeit ist essenziell, um Vertrauen in algorithmische Entscheidungen zu etablieren und die „Black-Box“-Wahrnehmung, die vielen KI Systemen anhaftet, zu vermeiden.
+
+Darüber hinaus erweist sich die wahrgenommene Neutralität der Systeme als entscheidend. Nutzer*innen betonen, dass die KI nicht unter dem Einfluss privatwirtschaftlicher Interessen stehen darf. Eine unabhängige und möglichst objektive Entscheidungsfindung, die idealerweise unter staatlicher oder gemeinnütziger Aufsicht agiert, wird als Voraussetzung angesehen, um manipulative Verzerrungen zu verhindern und die ethische Integrität des Systems sicherzustellen.
+
+Ein weiterer zentraler Aspekt betrifft die Nutzerkontrolle. Die Befragten bevorzugen Formen der Interaktion, bei denen sie selbst entscheiden können, inwieweit sie durch das System unterstützt oder gewarnt werden möchten. Statt bevormundender, automatisierter Eingriffe werden dezente, kontextabhängige Hinweise favorisiert, die den individuellen Bedarf berücksichtigen und die Autonomie der Nutzer*innen respektieren.
+
+Hinsichtlich der Verantwortung wird deutlich, dass diese nicht ausschließlich bei den Entwickler* innen der Systeme oder den betreibenden Plattformen liegen kann. Vielmehr wird eine kollektive Verantwortung gefordert, die auch staatliche Institutionen sowie die Nutzer*innen selbst einschließt. Diese geteilte Verantwortung soll sicherstellen, dass sowohl technische als auch ethische Standards eingehalten und kontinuierlich weiterentwickelt werden.
+
+Die Analyse zeigt somit, dass Vertrauen in KI gestützte Misinformationserkennung nur dann entstehen kann, wenn mehrere Bedingungen gleichzeitig erfüllt sind: eine transparente und nachvollziehbare Funktionsweise, institutionelle Unabhängigkeit, eine nutzerzentrierte Interaktionsgestaltung sowie ein klar definiertes, gemeinschaftlich getragenes Verantwortungsmodell. Erst das Zusammenspiel dieser Elemente schafft die Grundlage für eine akzeptierte und vertrauenswürdige Integration von KI in digitale Informationsumgebungen.
+
 
 # Diskussion
 
