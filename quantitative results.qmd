@@ -66,13 +66,12 @@ rev_ati <- \(x) ifelse(is.na(x), NA, scale_max_ATI + scale_min_ATI - x)
 
 # Filter + Scores -----------------------------------------------------
 data <- raw |>
-  filter(age >= 18) |>
+  filter(age >= 18, smfrequency >= 3) |>
   mutate(
     across(all_of(ATI_neg), rev_ati)
   ) |>
   mutate(
     HCT       = rowMeans(pick(all_of(HCT_items)), na.rm = TRUE),
-    #  HCT_U   = rowMeans(pick(all_of(HCT_U_items)), na.rm = TRUE),   <- ZEILE STREICHEN
     ATI_total = rowMeans(pick(all_of(ATI_items)),   na.rm = TRUE),
     ATI_group = if_else(ATI_total >= median(ATI_total, na.rm = TRUE),
                         "High", "Low"),
@@ -166,7 +165,7 @@ r_out   <- broom::tidy(cor_res)
 
 ```{r}
 #| label: fig-scat
-#| fig-cap: "Zusammenhang Understandability und Gesamtvertrauen"
+#| fig-cap: "Zusammenhang Workload und Gesamtvertrauen"
 #| fig-alt: "Scatter-Plot mit Regressionslinie"
 #| echo: false
 ggplot(data, aes(x = DLR_KI, y = HCT)) +
