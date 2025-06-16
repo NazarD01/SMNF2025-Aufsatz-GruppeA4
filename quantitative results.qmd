@@ -1,80 +1,175 @@
 ---
 title: "Quantitativer Ergebnisteil"
-format: html
-editor: visual
-author: "Gruppe A4"
-date: "r format(Sys.Date(), '%d.%m.%Y')"
+author: "Gruppe A4"
+date: "`r format(Sys.Date(), '%d.%m.%Y')`"
 lang: de
-format: pdf
+format:
+  pdf:
+    documentclass: article
+    papersize: a4
+    fontsize: 12pt
+  html: default
 execute:
-echo: false       # R‑Code im Output verbergen
-message: false
-warning: false
+  echo: false      # R-Code unterdrücken
+  message: false
+  warning: false
+number-sections: true
 ---
 
-```{r setup, include=FALSE}
-# ───────────────────────────────────────────────
-# Pakete prüfen / installieren + laden
-# ───────────────────────────────────────────────
-req <- c("tidyverse", "psych", "gt", "effsize")
+```{r}
+#| label: prepare-data
+#| include: false
+# Pakete --------------------------------------------------------------
+req <- c("tidyverse", "psych", "gt", "effsize", "broom", "glue", "purrr")
 miss <- req[!req %in% installed.packages()[, "Package"]]
-if (length(miss)) install.packages(miss, dependencies = TRUE)
-# Laden
+if (length(miss)) install.packages(miss, dep = TRUE)
 invisible(lapply(req, library, character.only = TRUE))
 
-# Daten einlesen (liegen ausserhalb Git‑Repo)
+# Rohdaten (CSV liegt *außerhalb* des Git-Repos!) ---------------------
 raw <- readr::read_csv("data/raw/data_combined.csv", show_col_types = FALSE)
-```
 
-```{r score-scales, echo=TRUE}
-# ───────────────────────────────────────────────
-# Variablenlisten gemäss Codebook (23.05.2025)
-# ───────────────────────────────────────────────
-HCT_items <- c("HCT_R01","HCT_R02","HCT_R03","HCT_R04","HCT_R05",
-               "HCT_T01","HCT_T02","HCT_T03","HCT_T04","HCT_T05",
-               "HCT_U01","HCT_U02","HCT_U03","HCT_U04","HCT_U05")
-ATI_items <- c("ATI_1","ATI_2","ATI_3","ATI_4","ATI_5",
-               "ATI_6","ATI_7","ATI_8","ATI_9")
-DLR_items <- c("KI_DLR_WAT_I","KI_DLR_WAT_W","KI_DLR_WAT_E",
-               "KI_DLR_WAT_M","KI_DLR_WAT_Z","KI_DLR_WAT_A",
-               "KI_DLR_WAT_F","KI_DLR_WAT_B")
+# Item-Listen ---------------------------------------------------------
+HCT_items <- c(
+  "hct_r01","hct_r02","hct_r03","hct_r04","hct_r05",
+  "hct_t01","hct_t02","hct_t03","hct_t04","hct_t05",
+  "hct_u01","hct_u02","hct_u03","hct_u04","hct_u05"
+)
+HCT_U_items <- HCT_items[11:15]
+HCT_neg     <- c("hct_r03","hct_t02","hct_t05","hct_u03","hct_u05")
 
-# Invertierungs‑Key für HCT (1 = normal, -1 = invertiert)
-HCT_key <- c(1,1,-1,1,1, 1,-1,1,1,-1, 1,1,-1,1,-1)
+ATI_items   <- sprintf("ati_%d", 1:9)
 
-# HCT‑Score
-HCT_scores <- psych::scoreItems(list(HCT = HCT_key),
-                                raw[HCT_items])$scores |> 
-              as.numeric()
+DLR_items   <- c(
+  "ki_dlr_wat_i","ki_dlr_wat_w","ki_dlr_wat_e",
+  "ki_dlr_wat_m","ki_dlr_wat_z","ki_dlr_wat_a",
+  "ki_dlr_wat_f","ki_dlr_wat_b"
+)
 
-# Cronbach‑Alphas
-alpha_HCT <- psych::alpha(raw[HCT_items])$total$raw_alpha
-alpha_DLR <- psych::alpha(raw[DLR_items])$total$raw_alpha
+lists <- list(HCT_items = HCT_items,
+              ATI_items = ATI_items,
+              DLR_items = DLR_items)
 
-# ATI‑Gesamt & Median‑Split; DLR‑KI‑Score
+# Existenz-Check & numerische Konvertierung ---------------------------
+purrr::walk2(lists, names(lists), \(vars, name){
+  miss <- setdiff(vars, names(raw))
+  if (length(miss))
+    stop(glue::glue("Fehlende Variablen in {name}: {paste(miss, collapse=', ')}"))
+})
 
-data <- raw |> 
-  dplyr::mutate(
-    HCT       = HCT_scores,
-    ATI_total = rowMeans(dplyr::across(all_of(ATI_items)), na.rm = TRUE),
-    ATI_group = dplyr::if_else(ATI_total >= median(ATI_total, na.rm = TRUE),
-                               "High", "Low"),
-    DLR_KI    = rowMeans(dplyr::across(all_of(DLR_items)), na.rm = TRUE)
+raw <- raw |>
+  mutate(across(all_of(unlist(lists)), ~ readr::parse_number(as.character(.))))
+
+# Skalen umpolen (negativ formulierte Items) --------------------------
+scale_min <- min(raw[HCT_items], na.rm = TRUE)
+scale_max <- max(raw[HCT_items], na.rm = TRUE)
+rev_fun   <- \(x) ifelse(is.na(x), NA, scale_max + scale_min - x)
+
+# Filter + Scores -----------------------------------------------------
+data <- raw |>
+  filter(age >= 18) |>
+  mutate(across(all_of(HCT_neg), rev_fun)) |>
+  mutate(
+    HCT       = rowMeans(pick(all_of(HCT_items)), na.rm = TRUE),
+    HCT_U     = rowMeans(pick(all_of(HCT_U_items)), na.rm = TRUE),
+    ATI_total = rowMeans(pick(all_of(ATI_items)),   na.rm = TRUE),
+    ATI_group = if_else(ATI_total >= median(ATI_total, na.rm = TRUE),
+                        "High", "Low"),
+    DLR_KI    = rowMeans(pick(all_of(DLR_items)),   na.rm = TRUE)
   )
+
+# Reliabilitäten ------------------------------------------------------
+alpha_HCT <- psych::alpha(select(data, all_of(HCT_items)))$total$raw_alpha
+alpha_ATI <- psych::alpha(select(data, all_of(ATI_items)))$total$raw_alpha
+alpha_DLR <- psych::alpha(select(data, all_of(DLR_items)))$total$raw_alpha
 ```
 
-```{r desc-table}
-# Deskriptive Statistik für metrische Variablen
+## **Deskriptive Tabelle**
+
+```{r}
+#| label: sample-info
+#| include: false
+sample_stats <- data |>
+  summarise(
+    N          = n(),
+    mean_age   = mean(age, na.rm = TRUE),
+    sd_age     = sd(age,  na.rm = TRUE),
+    median_age = median(age, na.rm = TRUE)
+)
+
+gender_tbl <- data |>
+  count(gender) |>
+  mutate(pct = round(100 * n / sum(n), 1))
+```
+
+```{r}
+#| label: desc-table
+#| tbl-cap: "Deskriptive Statistik der Zielvariablen"
+#| tbl-id: tbl-desc
+#| echo: false
 library(gt)
 
-desc_tbl <- data |> 
-  dplyr::select(HCT, DLR_KI) |> 
-  psych::describe() |> 
-  tibble::rownames_to_column("Variable") |> 
-  dplyr::select(Variable, n, mean, median, sd, min, max) |> 
-  gt::gt()
+desc_tbl <- data |>
+  select(HCT, ATI_total, DLR_KI) |>
+  psych::describe() |>
+  tibble::rownames_to_column("Variable") |>
+  select(Variable, n, mean, median, sd, min, max) |>
+  mutate(alpha = c(alpha_HCT, alpha_ATI, alpha_DLR) |> round(2))
 
-desc_tbl
+gt(desc_tbl)
 ```
 
-Inferenzstatistik {#sec-inf}
+```{r}
+#| label: t-test
+#| echo: false
+# Mittelwertvergleich -------------------------------------------------
+t_res <- t.test(HCT ~ ATI_group, data = data, var.equal = FALSE)
+
+# Effektstärke (Cohen d) – Formel-Methode von {effsize}
+d_res <- effsize::cohen.d(HCT ~ ATI_group, data = data, pooled = TRUE)
+
+# Plot-Daten ----------------------------------------------------------
+plot_t <- data |>
+  group_by(ATI_group) |>
+  summarise(
+    mean = mean(HCT, na.rm = TRUE),
+    se   = sd(HCT,  na.rm = TRUE) / sqrt(n()),
+    .groups = "drop"
+)
+
+# Objekt für Inline-Zitate (t, p, d)
+t_out <- broom::tidy(t_res) |>
+  mutate(d = unname(d_res$estimate))
+```
+
+```{r}
+#| label: fig-dot
+#| fig-cap: "Vertrauen (HCT) in Abhängigkeit von Technikaffinität (±SE)"
+#| fig-alt: "Dot-and-Whisker-Plot"
+#| echo: false
+ggplot(plot_t, aes(x = ATI_group, y = mean)) +
+  geom_point(size = 4) +
+  geom_errorbar(aes(ymin = mean - se, ymax = mean + se), width = .2) +
+  labs(x = "Technikaffinität", y = "HCT-Gesamtscore") +
+  theme_minimal()
+```
+
+```{r}
+#| label: cor
+#| echo: false
+cor_res <- cor.test(data$DLR_KI, data$HCT,
+                    use = "pairwise.complete.obs",
+                    method = "spearman")   # robust gegen Schiefe
+r_out   <- broom::tidy(cor_res)
+```
+
+```{r}
+#| label: fig-scat
+#| fig-cap: "Zusammenhang Understandability und Gesamtvertrauen"
+#| fig-alt: "Scatter-Plot mit Regressionslinie"
+#| echo: false
+ggplot(data, aes(x = DLR_KI, y = HCT)) +
+  geom_point(alpha = .6) +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(x = "DLR-Workload (KI)", y = "HCT-Gesamtscore") +
+  theme_minimal()
+```
