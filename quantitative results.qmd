@@ -39,6 +39,9 @@ ATI_items   <- sprintf("ati_%d", 1:9)
 ATI_neg <- c("ati_3", "ati_6", "ati_8")
 
 DLR_items   <- c(
+  "b_dlr_wat_i","b_dlr_wat_w","b_dlr_wat_e",
+  "b_dlr_wat_m","b_dlr_wat_z","b_dlr_wat_a",
+  "b_dlr_wat_f","b_dlr_wat_b",
   "ki_dlr_wat_i","ki_dlr_wat_w","ki_dlr_wat_e",
   "ki_dlr_wat_m","ki_dlr_wat_z","ki_dlr_wat_a",
   "ki_dlr_wat_f","ki_dlr_wat_b"
