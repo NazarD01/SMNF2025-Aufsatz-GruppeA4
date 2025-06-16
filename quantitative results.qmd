@@ -1,0 +1,80 @@
+---
+title: "Quantitativer Ergebnisteil"
+format: html
+editor: visual
+author: "Gruppe A4"
+date: "r format(Sys.Date(), '%d.%m.%Y')"
+lang: de
+format: pdf
+execute:
+echo: false       # R‑Code im Output verbergen
+message: false
+warning: false
+---
+
+```{r setup, include=FALSE}
+# ───────────────────────────────────────────────
+# Pakete prüfen / installieren + laden
+# ───────────────────────────────────────────────
+req <- c("tidyverse", "psych", "gt", "effsize")
+miss <- req[!req %in% installed.packages()[, "Package"]]
+if (length(miss)) install.packages(miss, dependencies = TRUE)
+# Laden
+invisible(lapply(req, library, character.only = TRUE))
+
+# Daten einlesen (liegen ausserhalb Git‑Repo)
+raw <- readr::read_csv("data/raw/data_combined.csv", show_col_types = FALSE)
+```
+
+```{r score-scales, echo=TRUE}
+# ───────────────────────────────────────────────
+# Variablenlisten gemäss Codebook (23.05.2025)
+# ───────────────────────────────────────────────
+HCT_items <- c("HCT_R01","HCT_R02","HCT_R03","HCT_R04","HCT_R05",
+               "HCT_T01","HCT_T02","HCT_T03","HCT_T04","HCT_T05",
+               "HCT_U01","HCT_U02","HCT_U03","HCT_U04","HCT_U05")
+ATI_items <- c("ATI_1","ATI_2","ATI_3","ATI_4","ATI_5",
+               "ATI_6","ATI_7","ATI_8","ATI_9")
+DLR_items <- c("KI_DLR_WAT_I","KI_DLR_WAT_W","KI_DLR_WAT_E",
+               "KI_DLR_WAT_M","KI_DLR_WAT_Z","KI_DLR_WAT_A",
+               "KI_DLR_WAT_F","KI_DLR_WAT_B")
+
+# Invertierungs‑Key für HCT (1 = normal, -1 = invertiert)
+HCT_key <- c(1,1,-1,1,1, 1,-1,1,1,-1, 1,1,-1,1,-1)
+
+# HCT‑Score
+HCT_scores <- psych::scoreItems(list(HCT = HCT_key),
+                                raw[HCT_items])$scores |> 
+              as.numeric()
+
+# Cronbach‑Alphas
+alpha_HCT <- psych::alpha(raw[HCT_items])$total$raw_alpha
+alpha_DLR <- psych::alpha(raw[DLR_items])$total$raw_alpha
+
+# ATI‑Gesamt & Median‑Split; DLR‑KI‑Score
+
+data <- raw |> 
+  dplyr::mutate(
+    HCT       = HCT_scores,
+    ATI_total = rowMeans(dplyr::across(all_of(ATI_items)), na.rm = TRUE),
+    ATI_group = dplyr::if_else(ATI_total >= median(ATI_total, na.rm = TRUE),
+                               "High", "Low"),
+    DLR_KI    = rowMeans(dplyr::across(all_of(DLR_items)), na.rm = TRUE)
+  )
+```
+
+```{r desc-table}
+# Deskriptive Statistik für metrische Variablen
+library(gt)
+
+desc_tbl <- data |> 
+  dplyr::select(HCT, DLR_KI) |> 
+  psych::describe() |> 
+  tibble::rownames_to_column("Variable") |> 
+  dplyr::select(Variable, n, mean, median, sd, min, max) |> 
+  gt::gt()
+
+desc_tbl
+```
+
+Inferenzstatistik {#sec-inf}

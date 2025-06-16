@@ -49,12 +49,11 @@ po/*~
 rsconnect/
 
 # Output files from Quarto render 
-*.pdf 
-*.html 
+*.pdf
+*.html
 **/*.csv
 data/**
-abstract/* 
+abstract/*
 
 # macOS system files
 .DS_Store
-

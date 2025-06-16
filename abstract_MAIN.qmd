@@ -98,7 +98,6 @@ Die Online-Erhebung wird vom 24. Mai bis 02. Juni 2025 aktiv und wird auf der in
 Zum Zeitpunkt der Analyse lagen unserer Projektgruppe 28 vollständige Datensätze aus der eigenen Rekrutierung vor. Da im Rahmen der Lehrveranstaltung SMNF mehrere Projektgruppen parallel denselben standardisierten Fragebogen einsetzen, werden die erhobenen Datensätze zu einem gemeinsamen Gesamtdatensatz zusammengeführt und gemeinsam ausgewertet.
 
 Der chronologische Ablauf der quantitativen Studie (siehe dynamisches Diagramm unten) gliedert sich in mehrere aufeinanderfolgende Phasen:
-
 ```{mermaid}
 ---
 config:
@@ -135,6 +134,7 @@ flowchart TD
     class H future,Sky,Ash,Peach
     class I future,Peach
 ```
+
 Nach der Einholung der datenschutzrechtlichen Einwilligung und dem Ausfüllen eines Pre-Test-Fragebogens erfolgt zunächst die Baseline-Klassifizierung, bei der die Teilnehmenden zehn Social-Media-Beiträge ohne KI-Unterstützung bewerten und gleichzeitig eine Workload-Messung durchgeführt wird. Im Anschluss daran beantworten sie einen Post-Baseline-Fragebogen zur Erfassung erster Nutzereindrücke und kognitiver Belastung.
 
 Daraufhin erfolgt die Randomisierung in zwei Between-Subjects-Bedingungen: Die Teilnehmenden werden zufällig einer entweder evaluativen oder empfehlenden KI-Variante zugewiesen. In der folgenden Phase erfolgt eine weitere Klassifikationsaufgabe von zehn Beiträgen – diesmal mit KI-Feedback – begleitet von einer erneuten Workload-Erhebung.
