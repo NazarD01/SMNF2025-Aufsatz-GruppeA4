@@ -39,9 +39,6 @@ ATI_items   <- sprintf("ati_%d", 1:9)
 ATI_neg <- c("ati_3", "ati_6", "ati_8")
 
 DLR_items   <- c(
-  "b_dlr_wat_i","b_dlr_wat_w","b_dlr_wat_e",
-  "b_dlr_wat_m","b_dlr_wat_z","b_dlr_wat_a",
-  "b_dlr_wat_f","b_dlr_wat_b",
   "ki_dlr_wat_i","ki_dlr_wat_w","ki_dlr_wat_e",
   "ki_dlr_wat_m","ki_dlr_wat_z","ki_dlr_wat_a",
   "ki_dlr_wat_f","ki_dlr_wat_b"
@@ -87,7 +84,6 @@ alpha_ATI <- psych::alpha(select(data, all_of(ATI_items)))$total$raw_alpha
 alpha_DLR <- psych::alpha(select(data, all_of(DLR_items)))$total$raw_alpha
 ```
 
-## **Deskriptive Tabelle**
 
 ```{r}
 #| label: sample-info
@@ -110,7 +106,8 @@ gender_tbl <- data |>
 #| tbl-cap: "Deskriptive Statistik der Zielvariablen"
 #| tbl-id: tbl-desc
 #| echo: false
-library(gt)
+library(knitr)
+library(kableExtra)
 
 desc_tbl <- data |>
   select(HCT, ATI_total, DLR_KI) |>
@@ -119,7 +116,8 @@ desc_tbl <- data |>
   select(Variable, n, mean, median, sd, min, max) |>
   mutate(alpha = c(alpha_HCT, alpha_ATI, alpha_DLR) |> round(2))
 
-gt(desc_tbl)
+kable(desc_tbl, format = "latex", digits = 2, booktabs = TRUE) |>
+  kable_styling(latex_options = "HOLD_position")
 ```
 
 ```{r}
@@ -160,6 +158,7 @@ ggplot(plot_t, aes(x = ATI_group, y = mean)) +
 ```{r}
 #| label: cor
 #| echo: false
+#| warning: false
 cor_res <- cor.test(data$DLR_KI, data$HCT,
                     use = "pairwise.complete.obs",
                     method = "spearman")   # robust gegen Schiefe
@@ -170,6 +169,8 @@ r_out   <- broom::tidy(cor_res)
 #| label: fig-scat
 #| fig-cap: "Zusammenhang Workload und Gesamtvertrauen"
 #| fig-alt: "Scatter-Plot mit Regressionslinie"
+#| fig-env: figure
+#| fig-pos: H
 #| echo: false
 ggplot(data, aes(x = DLR_KI, y = HCT)) +
   geom_point(alpha = .6) +

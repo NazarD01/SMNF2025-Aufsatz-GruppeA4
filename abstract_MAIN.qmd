@@ -159,14 +159,22 @@ Als Zielvariable für das Vertrauen in KI-gestützte Klassifikation kam die Huma
 Zusätzlich wurden weitere Instrumente zur Erfassung von Usability (System Usability Scale, SUS), User Experience (UEQ), subjektivem Workload (DLR-WAT) und Informationsverarbeitungsbewusstsein (SIPA) erhoben, die jedoch im Rahmen dieser Analyse nicht fokussiert ausgewertet werden.
 
 ### Datenanalyse
-Zur Beantwortung der zentralen Forschungsfragen sind inferenzstatistische Analysen vorgesehen. Die erste Fragestellung untersucht den Unterschied im Vertrauen gegenüber KI-Systemen in Abhängigkeit von der Technikaffinität. Die zweite Fragestellung bezieht sich auf einen möglichen Zusammenhang zwischen der subjektiv wahrgenommenen Unterstützung durch das KI-System und dem allgemeinen Vertrauen in dessen Klassifikationen.
+Zur Beantwortung der zentralen Forschungsfragen sind inferenzstatistische Analysen vorgesehen. 
+Forschungsfrage 1 zielte darauf ab, Unterschiede im Vertrauen gegenüber KI-Systemen in Abhängigkeit von der Technikaffinität zu prüfen. Hierzu wurde ein zweiseitiger t-Test durchgeführt. Die unabhängige Variable (Technikaffinität) wurde dichotomisiert (≥ Median = hohe Technikaffinität), während als abhängige Variable der HCT-Gesamtscore (metrisch) verwendet wurde, welcher das allgemeine Vertrauen in das KI-System abbildet.
+
+Forschungsfrage 2 untersuchte den Zusammenhang zwischen der subjektiv wahrgenommenen Arbeitsbelastung während der Informationsklassifikation (DLR_KI) und dem generellen Vertrauen in die vom KI-System getroffenen Klassifikationen (HCT-Gesamtscore). Da beide Variablen metrisch skaliert sind und kein normalverteiltes Antwortverhalten vorlag, wurde eine nichtparametrische Spearman-Rangkorrelation zur Analyse verwendet.
 
 | Fragestellung 	| Test 	| UV / Gruppierung 	| AV 	|
 |---	|---	|---	|---	|
 | Unterschied im KI-Vertrauen je Technikaffinität 	| zweiseitiger t-Test (α = .05) 	| ATI dichotomisiert (≥ Median = hoch) 	| HCT-Gesamtscore 	|
-| Zusammenhang zwischen wahrgenommener Unterstützung durch das KI-System und dem Vertrauen in dieses System 	| Pearson- r 	| HCT-Subskala „Understandability“ (5 Items) 	| HCT-Gesamtvertrauen (15 Items) 	|
+| Zusammenhang zwischen der subjektiv wahrgenommenen Arbeitsbelastung während der Klassifikation und dem gesamten Vertrauen der Nutzer*innen in das KI-System 	| Spearman-Rangkorrelation 	| DLR_KI  (metrisch, 15 Items) 	| HCT-Gesamtscore (metrisch, 15 Items) 	|
 
 Das Signifikanzniveau wird für alle inferenzstatistischen Tests auf α = .05 festgelegt. Zusätzlich sollen Effektstärken (Cohen’s d für den t-Test bzw. Pearson’s r für die Korrelationsanalyse) berechnet werden. Die statistischen Voraussetzungen der Verfahren (Normalverteilung, Varianzhomogenität) werden vor der Analyse überprüft [@shapiro-1965], [@levene1960].
+
+### Deskriptive Ergebnisse
+```{r child = "quantitative results.qmd"}
+suppressPackageStartupMessages(library(kableExtra))
+```
 
 ### Ethik
 Die Teilnahme an der Studie erfolgte freiwillig und konnte jederzeit ohne Angabe von Gründen abgebrochen werden, ohne dass den Teilnehmenden daraus Nachteile entstanden. Alle erhobenen Daten wurden anonymisiert, verschlüsselt gespeichert und nach Projektabschluss vollständig gelöscht.
