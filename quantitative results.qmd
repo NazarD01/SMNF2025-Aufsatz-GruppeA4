@@ -34,10 +34,9 @@ HCT_items <- c(
   "hct_t01","hct_t02","hct_t03","hct_t04","hct_t05",
   "hct_u01","hct_u02","hct_u03","hct_u04","hct_u05"
 )
-HCT_U_items <- HCT_items[11:15]
-HCT_neg     <- c("hct_r03","hct_t02","hct_t05","hct_u03","hct_u05")
 
 ATI_items   <- sprintf("ati_%d", 1:9)
+ATI_neg <- c("ati_3", "ati_6", "ati_8")
 
 DLR_items   <- c(
   "ki_dlr_wat_i","ki_dlr_wat_w","ki_dlr_wat_e",
@@ -60,17 +59,20 @@ raw <- raw |>
   mutate(across(all_of(unlist(lists)), ~ readr::parse_number(as.character(.))))
 
 # Skalen umpolen (negativ formulierte Items) --------------------------
-scale_min <- min(raw[HCT_items], na.rm = TRUE)
-scale_max <- max(raw[HCT_items], na.rm = TRUE)
-rev_fun   <- \(x) ifelse(is.na(x), NA, scale_max + scale_min - x)
+scale_min_ATI <- min(raw[ATI_items], na.rm = TRUE)
+scale_max_ATI <- max(raw[ATI_items], na.rm = TRUE)
+
+rev_ati <- \(x) ifelse(is.na(x), NA, scale_max_ATI + scale_min_ATI - x)
 
 # Filter + Scores -----------------------------------------------------
 data <- raw |>
   filter(age >= 18) |>
-  mutate(across(all_of(HCT_neg), rev_fun)) |>
+  mutate(
+    across(all_of(ATI_neg), rev_ati)
+  ) |>
   mutate(
     HCT       = rowMeans(pick(all_of(HCT_items)), na.rm = TRUE),
-    HCT_U     = rowMeans(pick(all_of(HCT_U_items)), na.rm = TRUE),
+    #  HCT_U   = rowMeans(pick(all_of(HCT_U_items)), na.rm = TRUE),   <- ZEILE STREICHEN
     ATI_total = rowMeans(pick(all_of(ATI_items)),   na.rm = TRUE),
     ATI_group = if_else(ATI_total >= median(ATI_total, na.rm = TRUE),
                         "High", "Low"),
