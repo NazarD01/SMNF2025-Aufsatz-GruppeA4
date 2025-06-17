@@ -169,12 +169,33 @@ Forschungsfrage 2 untersuchte den Zusammenhang zwischen der subjektiv wahrgenomm
 | Unterschied im KI-Vertrauen je Technikaffinität 	| zweiseitiger t-Test (α = .05) 	| ATI dichotomisiert (≥ Median = hoch) 	| HCT-Gesamtscore 	|
 | Zusammenhang zwischen der subjektiv wahrgenommenen Arbeitsbelastung während der Klassifikation und dem gesamten Vertrauen der Nutzer*innen in das KI-System 	| Spearman-Rangkorrelation 	| DLR_KI  (metrisch, 15 Items) 	| HCT-Gesamtscore (metrisch, 15 Items) 	|
 
+
 Das Signifikanzniveau wird für alle inferenzstatistischen Tests auf α = .05 festgelegt. Zusätzlich sollen Effektstärken (Cohen’s d für den t-Test bzw. Pearson’s r für die Korrelationsanalyse) berechnet werden. Die statistischen Voraussetzungen der Verfahren (Normalverteilung, Varianzhomogenität) werden vor der Analyse überprüft [@shapiro-1965], [@levene1960].
 
+### Datenanalyse Stichprobe
+Durch eine Online-Umfrage wurde eine Stichprobe von Studierenden (N = 177) rekrutiert. Die Teilnehmenden wurden darüber informiert, dass die Umfrage den Anforderungen der EU-Datenschutz-Grundverordnung (DSGVO) entsprach und alle erhobenen Daten anonymisiert wurden. Zusätzlich wurde die Nutzungshäufigkeit sozialer Medien erhoben, um aktive Nutzerinnen und Nutzer zu identifizieren. Auf dieser Basis wurden vier Personen ausgeschlossen, da ihre Aktivität unterhalb des definierten Grenzwerts lag (smfrequency < 3). Dies stellte sicher, dass die Stichprobe die Zielgruppe der regelmäßigen Social-Media-Nutzer*innen korrekt abbildet (M = 4,9, Mdn = 5, SD = 0,4). Daher wurden insgesamt n = 172 in die weitere Analyse einbezogen. Das Durchschnittsalter der Stichprobe betrug M = 25,8 Jahre (Mdn = 22, SD = 10,4).
+
 ### Deskriptive Ergebnisse
-```{r child = "quantitative results.qmd"}
-suppressPackageStartupMessages(library(kableExtra))
+Die deskriptiven Kennwerte der für die Analyse relevanten Variablen sind in Tabelle 3 dargestellt. Die Skalen weisen durchweg zufriedenstellende interne Konsistenzen auf (Cronbachs Alpha ≥ 0.80).  
+```{r}
+#| child: "quantitative results.qmd"
 ```
+
+
+### Inferenzstatistik 
+Um mögliche gruppenspezifische Unterschiede im Vertrauen in KI-Tools zu analysieren, wurde ein zweiseitiger t-Test für unabhängige Stichproben durchgeführt. Die Technikaffinität (ATI) wurde anhand des Medians der Stichprobe in zwei Gruppen unterteilt: Teilnehmende mit einem ATI-Wert über dem Median wurden der Gruppe mit hoher Technikaffinität zugeordnet, während Personen mit einem ATI-Wert unterhalb des Medians in der Gruppe mit niedriger Technikaffinität erfasst wurden. Diese Gruppeneinteilung stellt sicher, dass die Analyse auf einer gleichmäßigen Verteilung der Technikaffinität basiert. 
+
+Die Differenz der durchschnittlichen Vertrauenswerte in KI-Technologien (HCT) zwischen Personen mit hoher Technikaffinität (M = 5,0, SD = 0,0, n = 90) und niedriger Technikaffinität (M = 4,7, SD = 0,5, n = 82) war signifikant (t(170) = 5,42, p < .001, d = 0,87). Dies deutet darauf hin, dass Technikaffinität zwar einen Einfluss auf das Vertrauen in KI haben könnte, jedoch ist die praktische Bedeutung dieses Unterschieds fraglich. Die berechnete Effektstärke nach [@cohen-1988] beträgt d = 0,87, was auf einen großen Effekt hinweist. Allerdings zeigt die visuelle Analyse der Daten (Abbildung 1), dass die Mittelwerte beider Gruppen nah beieinander liegen, was darauf hindeutet, dass der berechnete starke Effekt durch die geringe Streuung beeinflusst, wurde.  
+
+In der Gruppe mit hoher Technikaffinität (n = 90) wurde eine Standardabweichung von 0 angegeben, was bedeutet, dass alle Teilnehmer exakt denselben Wert von 5,0 angegeben haben. Dies kann methodische Konsequenzen haben: 
+
+Ein t-Test setzt voraus, dass beide Gruppen eine gewisse Streuung aufweisen. Eine SD von 0 bedeutet, dass keine Variation innerhalb der Gruppe vorhanden ist, was die Berechnung des Standardfehlers stark beeinflusst und die Aussagekraft des Tests einschränken kann. 
+
+Wenn der wahre Effekt klein ist, könnte eine größere Stichprobe helfen, ihn klarer nachzuweisen. 
+
+Die grafische Darstellung (Abbildung 2) zeigt die Zusammenhänge zwischen der subjektiven Arbeitsbelastung durch KI (DLR_KI) und dem generellen Vertrauen in die Klassifikationen des KI-Systems (HCT-Gesamtscore). Dabei sind die Werte beider Variablen als Einzelpunkte in einem Streudiagramm dargestellt. Die x-Achse repräsentiert die subjektiv wahrgenommene Arbeitsbelastung nach der Nutzung der KI, während die y-Achse das generelle Vertrauen in die Klassifikationen des Systems widerspiegelt. 
+
+Zusätzlich zeigt die Abbildung eine Regressionslinie, die mögliche Zusammenhänge zwischen den beiden Variablen visualisiert. Die breite Streuung der Datenpunkte sowie der nahezu horizontale Verlauf dieser Linie deuten darauf hin, dass kein klarer Zusammenhang zwischen beiden Faktoren besteht. Das bedeutet, dass eine höhere mentale Belastung während der Informationsklassifikation nicht zwingend mit einem geringeren Vertrauen in das KI-System einhergeht. 
 
 ### Ethik
 Die Teilnahme an der Studie erfolgte freiwillig und konnte jederzeit ohne Angabe von Gründen abgebrochen werden, ohne dass den Teilnehmenden daraus Nachteile entstanden. Alle erhobenen Daten wurden anonymisiert, verschlüsselt gespeichert und nach Projektabschluss vollständig gelöscht.

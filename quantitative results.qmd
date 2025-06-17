@@ -16,6 +16,7 @@ execute:
 number-sections: true
 ---
 
+
 ```{r}
 #| label: prepare-data
 #| include: false
@@ -88,6 +89,8 @@ alpha_DLR <- psych::alpha(select(data, all_of(DLR_items)))$total$raw_alpha
 ```{r}
 #| label: sample-info
 #| include: false
+#| tbl-cap: "Deskriptive Statistik"
+#| tbl-pos: "H"
 sample_stats <- data |>
   summarise(
     N          = n(),
@@ -105,19 +108,19 @@ gender_tbl <- data |>
 #| label: desc-table
 #| tbl-cap: "Deskriptive Statistik der Zielvariablen"
 #| tbl-id: tbl-desc
+#| tbl-pos: "H"
 #| echo: false
+#| results: asis
 library(knitr)
-library(kableExtra)
 
 desc_tbl <- data |>
   select(HCT, ATI_total, DLR_KI) |>
   psych::describe() |>
   tibble::rownames_to_column("Variable") |>
   select(Variable, n, mean, median, sd, min, max) |>
-  mutate(alpha = c(alpha_HCT, alpha_ATI, alpha_DLR) |> round(2))
+  mutate(alpha = round(c(alpha_HCT, alpha_ATI, alpha_DLR), 2))
 
-kable(desc_tbl, format = "latex", digits = 2, booktabs = TRUE) |>
-  kable_styling(latex_options = "HOLD_position")
+kable(desc_tbl, format = "latex", booktabs = TRUE, digits = 2, caption = "Deskriptive Statistik der Zielvariablen")
 ```
 
 ```{r}
@@ -140,7 +143,7 @@ plot_t <- data |>
 
 # Objekt für Inline-Zitate (t, p, d)
 t_out <- broom::tidy(t_res) |>
-  mutate(d = unname(d_res$estimate))
+  mutate(d = round(unname(d_res$estimate), 2))
 ```
 
 ```{r}
