@@ -15,8 +15,6 @@ execute:
   warning: false
 number-sections: true
 ---
-
-
 ```{r}
 #| label: prepare-data
 #| include: false
@@ -85,7 +83,6 @@ alpha_ATI <- psych::alpha(select(data, all_of(ATI_items)))$total$raw_alpha
 alpha_DLR <- psych::alpha(select(data, all_of(DLR_items)))$total$raw_alpha
 ```
 
-
 ```{r}
 #| label: sample-info
 #| include: false
@@ -104,23 +101,32 @@ gender_tbl <- data |>
   mutate(pct = round(100 * n / sum(n), 1))
 ```
 
-```{r}
-#| label: desc-table
+```{r desc-table}
 #| tbl-cap: "Deskriptive Statistik der Zielvariablen"
 #| tbl-id: tbl-desc
 #| tbl-pos: "H"
 #| echo: false
 #| results: asis
-library(knitr)
+
+suppressPackageStartupMessages(library(kableExtra))
 
 desc_tbl <- data |>
   select(HCT, ATI_total, DLR_KI) |>
   psych::describe() |>
   tibble::rownames_to_column("Variable") |>
-  select(Variable, n, mean, median, sd, min, max) |>
+  rename(N = n) |>
+  mutate(Range = max - min) |>
+  select(Variable, N, mean, median, sd, min, max, range) |>
   mutate(alpha = round(c(alpha_HCT, alpha_ATI, alpha_DLR), 2))
 
-kable(desc_tbl, format = "latex", booktabs = TRUE, digits = 2, caption = "Deskriptive Statistik der Zielvariablen")
+desc_tbl |>
+  kbl(
+    format   = "latex",
+    booktabs = TRUE,
+    digits   = 2,
+    caption  = "Deskriptive Statistik der Zielvariablen"
+  ) |>
+  kable_styling(latex_options = "HOLD_position")
 ```
 
 ```{r}
@@ -146,17 +152,6 @@ t_out <- broom::tidy(t_res) |>
   mutate(d = round(unname(d_res$estimate), 2))
 ```
 
-```{r}
-#| label: fig-dot
-#| fig-cap: "Vertrauen (HCT) in Abhängigkeit von Technikaffinität (±SE)"
-#| fig-alt: "Dot-and-Whisker-Plot"
-#| echo: false
-ggplot(plot_t, aes(x = ATI_group, y = mean)) +
-  geom_point(size = 4) +
-  geom_errorbar(aes(ymin = mean - se, ymax = mean + se), width = .2) +
-  labs(x = "Technikaffinität", y = "HCT-Gesamtscore") +
-  theme_minimal()
-```
 
 ```{r}
 #| label: cor
@@ -166,18 +161,4 @@ cor_res <- cor.test(data$DLR_KI, data$HCT,
                     use = "pairwise.complete.obs",
                     method = "spearman")   # robust gegen Schiefe
 r_out   <- broom::tidy(cor_res)
-```
-
-```{r}
-#| label: fig-scat
-#| fig-cap: "Zusammenhang Workload und Gesamtvertrauen"
-#| fig-alt: "Scatter-Plot mit Regressionslinie"
-#| fig-env: figure
-#| fig-pos: H
-#| echo: false
-ggplot(data, aes(x = DLR_KI, y = HCT)) +
-  geom_point(alpha = .6) +
-  geom_smooth(method = "lm", se = FALSE) +
-  labs(x = "DLR-Workload (KI)", y = "HCT-Gesamtscore") +
-  theme_minimal()
 ```

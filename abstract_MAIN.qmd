@@ -1,5 +1,5 @@
 ---
-title: "Abstract"
+title: "Wie entsteht Vertrauen in KI-gestützte Desinformationsfilter? Eine empirische Untersuchung"
 author: 
   - Nazar Demianyk
   - Anastasiia Kopylova
@@ -15,6 +15,9 @@ format:
     papersize: a4
     fontsize: 12pt
     number-sections: true
+    fig-pos: 'H'
+header-includes:
+   - \usepackage{float}
 execute:
   echo: false
   editor: visual
@@ -31,10 +34,17 @@ cat("Commit Hash:", system("git rev-parse HEAD", intern = TRUE))
 ```
 
 # Einleitung
+Die rasante Entwicklung künstlicher Intelligenz (KI) hat die digitale Informationslandschaft tiefgreifend verändert. Insbesondere KI-basierte Klassifikationssysteme zur Erkennung von Desinformation gewinnen zunehmend an Bedeutung, da sie potenziell dazu beitragen können, die Verbreitung falscher oder manipulativer Inhalte in sozialen Netzwerken einzudämmen. Der Einsatz solcher Technologien wirft jedoch grundlegende Fragen hinsichtlich ihrer Akzeptanz, ihrer ethischen Einbettung und vor allem ihres Vertrauenspotenzials auf. 
+
+Vertrauen stellt eine zentrale Voraussetzung für die nachhaltige Integration digitaler Technologien in die alltägliche Mediennutzung dar. Ohne ausreichendes Vertrauen in KI-Systeme besteht die Gefahr, dass Nutzer*innen diese ignorieren, hinterfragen oder sogar ablehnen – ungeachtet ihrer technischen Leistungsfähigkeit. Gerade im Kontext von Desinformation, bei der kognitive Sicherheit und Glaubwürdigkeit eine Schlüsselrolle spielen, ist Vertrauen ein komplexes und vielschichtiges psychologisches Konstrukt. Es wird unter anderem beeinflusst durch wahrgenommene Transparenz, Nutzerkontrolle, institutionelle Unabhängigkeit und die technische Nachvollziehbarkeit der Entscheidungsprozesse. 
+
+Die vorliegende Studie verfolgt das Ziel, relevante Einflussfaktoren auf das Vertrauen von Nutzer*innen in KI-gestützte Misinformation-Detection-Tools systematisch zu untersuchen. Dazu wurde ein Mixed-Methods-Design gewählt, welches qualitative und quantitative Daten trianguliert und sowohl individuelle Nutzereinschätzungen als auch experimentelle Ergebnisse berücksichtigt. Im Fokus stehen insbesondere psychologische Konstrukte wie Technikaffinität, subjektive Arbeitsbelastung und Human-Computer-Trust sowie nutzerseitige Bewertungen von Systeminteraktionen mit und ohne KI-Feedback. 
+
+Ziel der Arbeit ist es, Erkenntnisse darüber zu gewinnen, unter welchen Bedingungen Vertrauen in KI-Systeme zur Desinformations-Erkennung entsteht und welche Gestaltungsprinzipien berücksichtigt werden müssen, um die Akzeptanz solcher Technologien zu fördern. Die Ergebnisse sollen als empirische Grundlage für die verantwortungsvolle Entwicklung und Anwendung KI-basierter Systeme im digitalen Informationsraum dienen und gleichzeitig einen Beitrag zur ethisch informierten Technikgestaltung leisten.
 
 # Literaturübersicht
 
-Im Rahmen der Literaturrecherche wurden drei wissenschaftliche Beiträge identifiziert, die wesentliche Anknüpfungspunkte zu den Forschungsfragen rund um Vertrauen in KI-gestützte Desinformations-Erkennung bieten. Sie beleuchten unterschiedliche Perspektiven – von individuellen Wahrnehmungen bis hin zu gesellschaftlich-regulatorischen Rahmenbedingungen.
+Im Rahmen der Literaturrecherche wurden drei wissenschaftliche Beiträge identifiziert, die wesentliche Anknüpfungspunkte zu den Forschungsfragen rund um Vertrauen in Künstliche Intelligenz (KI)-gestützte Desinformations-Erkennung bieten. Sie beleuchten unterschiedliche Perspektiven – von individuellen Wahrnehmungen bis hin zu gesellschaftlich-regulatorischen Rahmenbedingungen.
 
 @hwang2017 zeigt, wie digitale Desinformation demokratische Prozesse untergräbt und wie technologische Fortschritte – insbesondere KI und Machine Learning – die Glaubwürdigkeit von Falschmeldungen erhöhen.
 
@@ -46,117 +56,84 @@ Zusammenfassend verdeutlichen die drei Arbeiten, dass Vertrauen in KI-gestützte
 
 # Methode
 ## Qualitativer Forschungsansatz
-Wir wählten einen qualitativen Ansatz, weil unsere explorative Forschungsfrage ein vertieftes Verständnis bislang wenig untersuchter Nutzungsanforderungen verlangt. Neben technischen Dimensionen betrachten wir soziale, ethische und nutzer*innenbezogene Aspekte wie Vertrauen, Transparenz und Datenschutz – Faktoren, die stark kontextabhängig sind und sich am besten mit offenen Verfahren wie Interviews oder Fokusgruppen erfassen lassen. Diese Methoden ermöglichen es, auch unerwartete Perspektiven aufzudecken, die standardisierte Fragebögen nicht abbilden könnten.
+Wir wählten einen qualitativen Ansatz, da unsere explorative Forschungs- frage ein vertieftes Verständnis bislang wenig untersuchter Nutzungsanfor- derungen verlangte. Neben technischen Dimensionen betrachteten wir soziale, ethische und Nutzer*innenbezogene Aspekte wie Vertrauen, Transparenz und Datenschutz – Faktoren, die stark kontextabhängig sind und sich am besten mit offenen Verfahren wie Interviews oder Fokusgruppen erfassen ließen. Diese Methoden ermöglichten es, auch unerwartete Perspektiven aufzudecken, die standardisierte Fragebögen nicht abbilden könnten.
 
 ### Stichprobe
-Für unsere Erhebung rekrutierten wir zwei Personen unseres Alters (Convenience Sample). Junge Erwachsene, insbesondere Studierende, nutzen Künstliche Intelligenz (KI) regelmäßig und sind in sozialen Netzwerken hoch aktiv. Entsprechend häufig begegnen sie KI-generierten Inhalten, etwa im Nachrichtenkontext. Durch die Alters- und Lebenswelt­nähe erwarten wir reichhaltige, erfahrungsbasierte Einblicke in ihr Vertrauen und ihren Unterstützungsbedarf.
+Es wurden zwei Personen aus der Zielgruppe junger Erwachsener befragt, konkret handelte es sich um Studierende, die mittels eines Convenience Sampling ausgewählt wurden. Junge Erwachsene – insbesondere Studierende – wiesen eine regelmäßige Nutzung von Künstlicher Intelligenz (KI) auf und zeigten eine hohe Aktivität in sozialen Netzwerken. Dementsprechend waren sie häufig mit KI-generierten Inhalten konfrontiert, insbesondere im Kontext von Nachrichten. Aufgrund ihrer Altersstruktur sowie ihrer lebensweltlichen Nähe zum Thema wurde erwartet, dass sie reichhaltige und erfahrungsbasierte Einblicke in ihr Vertrauen gegenüber KI sowie ihren Bedarf an Unterstützung geben würden.
+
 
 ### Datenerhebung
-Wir haben uns für persönliche Face-to-Face-Interviews entschieden. Zunächst haben wir die Personen, die wir interviewt haben, mit der Datenschutzerklärung und Einwilligungserklärung vertraut gemacht und sichergestellt, dass sie damit einverstanden sind. Nachdem sie dem Inhalt zugestimmt hatten, haben wir mit dem Interview begonnen. Die Fragen haben wir aus den zur Verfügung gestellten Materialien übernommen, teilweise jedoch angepasst oder präzisiert. Die beiden Interviews wurden mit einem Diktiergerät aufgenommen, anschließend mithilfe des KI-Dienstes „Whisper“ transkribiert und die Transkripte manuell korrigiert.
+Für die Erhebung entschieden wir uns für persönliche Face-to-Face-Interviews. Zu Beginn wurden die Interviewpersonen ausführlich über die Datenschutzbestimmungen sowie die Einwilligungserklärung informiert. Es wurde sichergestellt, dass sie dem Inhalt zustimmten.   Nach erfolgter Zustimmung begann das Interview. Die Fragen stammten überwiegend aus den bereitgestellten Materialien, wurden jedoch teils modifiziert oder präzisiert, um die Forschungsziele angemessen zu adressieren. Beide Interviews wurden mittels eines Diktiergeräts aufgezeichnet, anschließend mit dem KI-gestützten Dienst „Whisper“ transkribiert und die resultierenden Transkripte im Anschluss manuell überarbeitet.
 
 ### Datenanalyse
-Für die Analyse haben wir die Themenanalyse nach @braun_clarke gewählt. Sie besteht aus sechs Phasen, die wir schrittweise analysiert, beschrieben und zusammengefasst haben. Jede/r von uns codierte zunächst unabhängig. Im Anschluss führten wir die Codes zusammen und diskutierten Abweichungen, um Interpretationssicherheit zu gewährleisten. Dieses Vorgehen resultierte in drei zentralen Themen, die im folgenden Ergebnisabschnitt detailliert dargestellt werden.
+Im Rahmen der Auswertung wurde die thematische Analyse nach @braun_clarke gewählt. . Diese Methode umfasst sechs Phasen, welche schrittweise analysiert, beschrieben und zusammengefasst wurden. Die Codierung erfolgte zunächst unabhängig durch die einzelnen Teammitglieder. Anschließend wurden die individuellen Codes zusammengeführt und etwaige Abweichungen diskutiert, um eine konsistente Interpretation zu gewährleisten. Dieses Vorgehen mündete in der Identifikation von drei zentralen Themen, die im anschließenden Ergebnisabschnitt detailliert erläutert wurden.
 
 ### Ergebnisse
-Wir haben zwei leitfadengestützte Interviews durchgeführt und mittels der Themenanalyse nach @braun_clarke ausgewertet. Befragt wurden zwei Personen aus der Zielgruppe junger Erwachsener, konkret Studierende. Die Auswahl dieser Personengruppe erscheint besonders geeignet im Hinblick auf unsere Forschungsfrage, da insbesondere Studierende nahezu täglich mit Künstlicher Intelligenz in Berührung kommen. Sei es im akademischen Kontext, zur Informationsbeschaffung oder zur Unterstützung bei alltäglichen Aufgaben.
+Wir führten zwei leitfadengestützte Interviews durch und analysierten diese auf Basis der Themenanalyse nach  @braun_clarke ausgewertet. Befragt wurden zwei Studierende aus der Zielgruppe junger Erwachsener, die aufgrund ihrer ausgeprägten digitalen Affinität und regelmäßigen Nutzung Künstlicher Intelligenz (KI) als besonders relevant für unsere Fragestellung gelten. KI begegnete ihnen in vielfältigen Kontexten – etwa in der akademischen Informationsrecherche oder bei alltäglichen Aufgaben – wodurch sie differenzierte Einschätzungen zur Funktionsweise, unterstützenden Rolle und zum Einfluss algorithmischer Systeme auf die Mediennutzung vornehmen konnten.
+Insbesondere soziale Netzwerke, die von jungen Menschen intensiv genutzt werden, erwiesen sich als bedeutender Raum für KI-gestützte Informationsverbreitung, einschließlich potenziell irreführender Inhalte. Die hohe Technikaffinität der Studierenden machte sie sowohl anfällig für Desinformation als auch fähig zur kritischen Reflexion algorithmischer Logiken. Vor diesem Hintergrund hielten wir es für zentral, ihre Perspektiven zu berücksichtigen, da sie im Alltag verstärkt mit KI konfrontiert sind und individuelle Strategien im Umgang mit ihr entwickeln.
 
-Diese regelmäßige Nutzung befähigt sie dazu, fundierte Einschätzungen hinsichtlich der Funktionsweise von KI sowie deren unterstützender Rolle und Einfluss auf die digitale Mediennutzung vorzunehmen. Relevanz erhält dies insbesondere im Kontext sozialer Netzwerke, die von der Mehrheit junger Menschen intensiv genutzt werden. Gerade in diesen digitalen Räumen spielt KI eine zunehmend zentrale Rolle bei der Verbreitung von Informationen, einschließlich potenziell irreführender oder falscher Inhalte.
-
-Studierende zeichnen sich durch eine hohe Affinität zu digitalen Technologien aus und sind daher sowohl potenziell von Desinformation betroffen als auch in der Lage, die Funktionslogiken algorithmischer Systeme zu reflektieren. Aus diesen Gründen war es für unsere Forschung zentral, die Perspektive junger Menschen zu berücksichtigen, da sie in besonderem Maße mit KI konfrontiert sind und individuell unterschiedliche Strategien im Umgang mit ihr entwickeln.
-
+::: {#tbl-qualithemen .table tbl-cap="Themenübersicht qualitativer Kategorien mit Zitaten"}
 | Thema | Definition | Zitate |
 |---|---|---|
 | Erklärbarkeit schafft Vertrauen | Transparente Offenlegung der KI-Entscheidungskriterien wird als essenziell eingestuft. | „Das System sollte logisch arbeiten und nachvollziehbar machen, weshalb es bestimmte Informationen auf eine bestimmte Weise eingeordnet hat.“ (P, Z.129-131) „Wenn ein Post Misinformation ist [...], es dann auch anzeigt, dass es Misinformation ist [...]." (P2, Z.72-75) |
 | Neutralität und Unabhängigkeit | KI muss als unparteiisch wahrgenommen werden. | „Es darf keinerlei äußeren Einfluss haben.“ (P, Z.132) „Insbesondere große Konzerne sollten nicht zu viel Einfluss darauf haben.“ (P, Z.174-176) |
 | Nutzerkontrolliertes Feedback | Nutzer*innen fordern die Kontrolle über KI-Interaktionen. | „Ich finde, sie sollte nur auf Anfrage erscheinen.“ (P, Z.147-148) „Mich stört bei vielen KIs in sozialen Medien [...], dass die die ganze Zeit angezeigt werden [...] aber genau wenn dann Misinformation im Post ist [...] dass man dann vielleicht eine kleine Anzeige hat, ‚Oh das könnte Misinformation sein‘ [...] und der dann zeigt, warum es Misinformationen sein könnte [...] und dass es strukturiert und übersichtlich ist und nicht zu überwältigend [...]" (P2, Z.116-124) |
+:::
 
-Die Analyse der Interviews verdeutlicht, dass das Vertrauen in KI gestützte Systeme zur Erkennung von Desinformation maßgeblich von verschiedenen voneinander abhängenden Faktoren beeinflusst wird. Zu den zentralen Aspekten zählen dabei Transparenz, Neutralität, Nutzerkontrolle sowie eine klar geregelte Verantwortungsstruktur.
 
-Im Hinblick auf die Transparenz erwarten Nutzer*innen, dass KI Systeme ihre Entscheidungen in nachvollziehbarer Weise erläutern können. Dies schließt insbesondere verständliche Begründungen, eine Offenlegung der Entscheidungsgrundlagen sowie transparente Quellenangaben mit ein. Eine solche technische Nachvollziehbarkeit ist essenziell, um Vertrauen in algorithmische Entscheidungen zu etablieren und die „Black-Box“-Wahrnehmung, die vielen KI Systemen anhaftet, zu vermeiden.
+Die Analyse der durchgeführten Interviews verdeutlichte, dass das Vertrauen in KI-gestützte Systeme zur Erkennung von Desinformation maßgeblich durch verschiedene, miteinander verknüpfte Faktoren beeinflusst wurde. Zu den zentralen Aspekten zählten dabei Transparenz, Neutralität, Nutzerkontrolle sowie eine klar geregelte Verantwortungsstruktur.
 
-Darüber hinaus erweist sich die wahrgenommene Neutralität der Systeme als entscheidend. Nutzer*innen betonen, dass die KI nicht unter dem Einfluss privatwirtschaftlicher Interessen stehen darf. Eine unabhängige und möglichst objektive Entscheidungsfindung, die idealerweise unter staatlicher oder gemeinnütziger Aufsicht agiert, wird als Voraussetzung angesehen, um manipulative Verzerrungen zu verhindern und die ethische Integrität des Systems sicherzustellen.
+Im Hinblick auf die Transparenz erwarteten die Nutzer*innen, dass KI-Systeme ihre Entscheidungen auf nachvollziehbare Weise erläutern konnten. Dies umfasste insbesondere verständliche Begründungen, die Offenlegung der Entscheidungsgrundlagen sowie transparente Quellenangaben. Diese technische Nachvollziehbarkeit erwies sich als essenziell, um Vertrauen in algorithmische Entscheidungen zu etablieren und die häufig als „Black Box“ wahrgenommene Intransparenz zu überwinden.
 
-Ein weiterer zentraler Aspekt betrifft die Nutzerkontrolle. Die Befragten bevorzugen Formen der Interaktion, bei denen sie selbst entscheiden können, inwieweit sie durch das System unterstützt oder gewarnt werden möchten. Statt bevormundender, automatisierter Eingriffe werden dezente, kontextabhängige Hinweise favorisiert, die den individuellen Bedarf berücksichtigen und die Autonomie der Nutzer*innen respektieren.
+Darüber hinaus stellte sich die wahrgenommene Neutralität der Systeme als entscheidend heraus. Die Befragten betonten, dass die KI nicht dem Einfluss privatwirtschaftlicher Interessen unterliegen dürfe. Eine unabhängige und möglichst objektive Entscheidungsfindung, idealerweise unter staatlicher oder gemeinnütziger Aufsicht, wurde als notwendig angesehen, um manipulative Verzerrungen zu verhindern und die ethische Integrität der Systeme zu gewährleisten.
 
-Hinsichtlich der Verantwortung wird deutlich, dass diese nicht ausschließlich bei den Entwickler* innen der Systeme oder den betreibenden Plattformen liegen kann. Vielmehr wird eine kollektive Verantwortung gefordert, die auch staatliche Institutionen sowie die Nutzer*innen selbst einschließt. Diese geteilte Verantwortung soll sicherstellen, dass sowohl technische als auch ethische Standards eingehalten und kontinuierlich weiterentwickelt werden.
+Auch die Nutzerkontrolle spielte eine zentrale Rolle. Die Befragten bevorzugten Interaktionsformen, die ihnen ermöglichten, selbst zu entscheiden, in welchem Umfang sie durch das System unterstützt oder gewarnt werden wollten. Statt bevormundender, automatisierter Eingriffe wurden dezente und kontextabhängige Hinweise präferiert, die individuellen Bedarfen Rechnung trugen und die Autonomie der Nutzer*innen respektierten.
 
-Die Analyse zeigt somit, dass Vertrauen in KI gestützte Misinformationserkennung nur dann entstehen kann, wenn mehrere Bedingungen gleichzeitig erfüllt sind: eine transparente und nachvollziehbare Funktionsweise, institutionelle Unabhängigkeit, eine nutzerzentrierte Interaktionsgestaltung sowie ein klar definiertes, gemeinschaftlich getragenes Verantwortungsmodell. Erst das Zusammenspiel dieser Elemente schafft die Grundlage für eine akzeptierte und vertrauenswürdige Integration von KI in digitale Informationsumgebungen.
+Im Hinblick auf die Verantwortung zeigte sich, dass diese nicht allein bei den Entwickler\*innen oder Plattformbetreiber\*innen liegen konnte. Vielmehr wurde ein Modell geteilter Verantwortung gefordert, das staatliche Institutionen ebenso wie die Nutzer*innen selbst einschloss. Dieses Konzept zielte darauf ab, sowohl technische als auch ethische Standards zu sichern und kontinuierlich weiterzuentwickeln.
+
+Insgesamt zeigte die Analyse, dass Vertrauen in KI-gestützte Systeme zur Desinformationsbekämpfung nur entstehen konnte, wenn mehrere Bedingungen gleichzeitig erfüllt waren: eine transparente und nachvollziehbare Funktionsweise, institutionelle Unabhängigkeit, nutzerzentrierte Interaktionsgestaltung und ein gemeinschaftlich getragenes Verantwortungsmodell. Erst das Zusammenspiel dieser Faktoren bildete die Grundlage für eine akzeptierte und vertrauenswürdige Integration von KI in digitale Informationsumgebungen.
 
 
 ## Quantitative Methode
 ### Studiendesign und Ablauf
-Zur Beantwortung der ersten Forschungsfrage(„Welche Faktoren beeinflussen das Vertrauen von Nutzerinnen in KI-gestützte Misinformation-Detection-Tools?“) wurde ein Mixed-Design-Methode gewählt [@fahrenberg2013].
+Zur Beantwortung der ersten Forschungsfrage („Welche Faktoren beeinflussen das Vertrauen von Nutzer*innen in KI-gestützte Misinformation-Detection-Tools?“) wählten wir ein Mixed-Design-Methodendesign [@fahrenberg2013].
 
-Innerhalb der Teilnehmenden wird der Effekt von KI-Unterstützung untersucht, indem jede Person zunächst eine Baseline-Aufgabe ohne KI durchführt und anschließend dieselbe Aufgabe mit KI-Feedback erhält (within-subjects). Zwischen den Teilnehmenden wird der Typ der KI-Erklärung variiert: Die Hälfte erhält ein evaluatives System, das nur eine Einschätzung anzeigt, die andere Hälfte ein empfehlendes System, das zusätzlich eine Handlungsempfehlung gibt (between-subjects).
+Innerhalb der Teilnehmendengruppe untersuchten wir den Effekt von KI-Unterstützung, indem jede Person zunächst eine Baseline-Aufgabe ohne KI absolvierte und anschließend dieselbe Aufgabe mit KI-Feedback bearbeitete (Within-Subjects-Design). Zwischen den Teilnehmenden variierten wir den Typ der KI-Erklärung: Eine Hälfte erhielt ein evaluatives System, das lediglich eine Einschätzung präsentierte, während der anderen Hälfte ein empfehlendes System zur Verfügung stand, dass zusätzlich eine Handlungsempfehlung beinhaltete (Between-Subjects-Design).
 
 - Between-Subjects-Faktor: zufällige Zuweisung zu einer evaluativen versus empfehlenden KI-Variante.
 
 - Within-Subjects-Faktor: jede Person klassifiziert zunächst zehn Posts ohne KI (Baseline) und anschließend zehn analoge Posts mit KI-Feedback.
 
-Die Online-Erhebung wird vom 24. Mai bis 02. Juni 2025 aktiv und wird auf der institutsinternen Plattform  gehostet.  Der Umfragelink wurde einmalig im AStA-Forum sowie per E-Mail an persönliche Kontakte verbreitet (Convenience-Sampling). 
+Die Online-Erhebung war vom 24. Mai bis 02. Juni 2025 aktiv und wurde auf der institutsinternen Plattform gehostet. Die Teilnehmenden wurden mittels Convenience-Sampling rekrutiert: Die Umfrage wurde einmalig über das AStA-Forum sowie per E-Mail an persönliche Kontakte verbreitet.
 
-Zum Zeitpunkt der Analyse lagen unserer Projektgruppe 28 vollständige Datensätze aus der eigenen Rekrutierung vor. Da im Rahmen der Lehrveranstaltung SMNF mehrere Projektgruppen parallel denselben standardisierten Fragebogen einsetzen, werden die erhobenen Datensätze zu einem gemeinsamen Gesamtdatensatz zusammengeführt und gemeinsam ausgewertet.
+Zum Zeitpunkt der Analyse lagen unserer Projektgruppe 28 vollständig ausgefüllte Datensätze aus der eigenen Rekrutierung vor. Da im Rahmen der Lehrveranstaltung SMNF mehrere Projektgruppen parallel denselben standardisierten Fragebogen eingesetzt hatten, wurden die erhobenen Datensätze zu einem gemeinsamen Gesamtdatensatz zusammengeführt und gemeinsam ausgewertet.
 
-Der chronologische Ablauf der quantitativen Studie (siehe dynamisches Diagramm unten) gliedert sich in mehrere aufeinanderfolgende Phasen:
-```{mermaid}
----
-config:
-  theme: neo
-  look: neo
----
-flowchart TD
-    n2["Start"] --> n6["Datenschutz & Einwilligung"]
-    n6 -- Ja --> A["Pre-Test<br>Fragebogen"]
-    n6 -- Nein --> n8["Ende"]
-    A --> B["Baseline-Klassifizierung<br>ohne KI & Workload-Messung"]
-    B --> C["Post-Baseline<br>Fragebogen"]
-    C --> D{"Randomisierung<br>KI-Variante"}
-    D -- evaluativ --> E["KI-gestützte Klassifikation<br>(10 Posts) & Workload-Messung"]
-    D -- empfehlend --> E
-    E --> F["Post-Test Fragebogen<br>(ATI, UEQ, HCT, DLR, SIPA)"]
-    F --> G["Datensichtung<br>& Bereinigung"]
-    G --> H["Statistische Analyse<br>(t-Test, Korrelation)"]
-    H --> I["Interpretation<br>& Reporting"]
+Der chronologische Ablauf der quantitativen Studie gliederte sich in mehrere aufeinanderfolgenden Phasen (siehe @fig-flussdiagramm).
 
-    classDef future fill:#FDEDEC,stroke:#CD6155
-    classDef Aqua stroke:#46EDC8, fill:#DEFFF8, color:#378E7A
-    classDef Rose stroke:#FF5978, fill:#FFDFE5, color:#8E2236
-    classDef past fill:#D6EAF8, stroke:#2E86C1
-    classDef Sky stroke:#374D7C, fill:#E2EBFF, color:#374D7C
-    classDef Ash stroke:#999999, fill:#EEEEEE, color:#000000
-    classDef Peach stroke:#FBB35A, fill:#FFEFDB, color:#8F632D
+![Ablauf der Studie im Flussdiagramm](123.png){#fig-flussdiagramm}
 
-    class n2 future,Aqua
-    class n6 future,past
-    class n8 Rose
-    class A past,Sky
-    class B,C,E,F,G past
-    class H future,Sky,Ash,Peach
-    class I future,Peach
-```
+Nach der Einholung der datenschutzrechtlichen Einwilligung und dem Ausfüllen eines Pre-Test-Fragebogens erfolgte zunächst die Baseline-Klassifizierung. Dabei bewerteten die Teilnehmenden zehn Social-Media-Beiträge ohne KI-Unterstützung, wobei parallel eine Workload-Messung durchgeführt wurde. Im Anschluss beantworteten sie einen Post-Baseline-Fragebogen zur Erfassung erster Nutzereindrücke und kognitiver Belastung. Anschließend wurden die Teilnehmenden mittels Randomisierung einer von zwei Between-Subjects-Bedingungen zugewiesen: entweder einer evaluativen oder einer empfehlenden KI-Variante.
 
-Nach der Einholung der datenschutzrechtlichen Einwilligung und dem Ausfüllen eines Pre-Test-Fragebogens erfolgt zunächst die Baseline-Klassifizierung, bei der die Teilnehmenden zehn Social-Media-Beiträge ohne KI-Unterstützung bewerten und gleichzeitig eine Workload-Messung durchgeführt wird. Im Anschluss daran beantworten sie einen Post-Baseline-Fragebogen zur Erfassung erster Nutzereindrücke und kognitiver Belastung.
+In der darauffolgenden Phase bearbeiteten die Teilnehmenden eine weitere Klassifikationsaufgabe mit zehn Social-Media-Beiträgen – diesmal unter Einbezug von KI-Feedback. Auch hier wurde erneut die individuelle Arbeitsbelastung erfasst.
 
-Daraufhin erfolgt die Randomisierung in zwei Between-Subjects-Bedingungen: Die Teilnehmenden werden zufällig einer entweder evaluativen oder empfehlenden KI-Variante zugewiesen. In der folgenden Phase erfolgt eine weitere Klassifikationsaufgabe von zehn Beiträgen – diesmal mit KI-Feedback – begleitet von einer erneuten Workload-Erhebung.
-
-Zum Abschluss füllen die Teilnehmenden einen Post-Test-Fragebogen aus, welcher unter anderem die Skalen ATI, HCT, sowie weitere UX-relevante Maße umfasst. Abschließend erfolgt eine Datensichtung und -bereinigung, bevor die Ergebnisse mittels inferenzstatistischer Verfahren (z. B. t-Test, Korrelationsanalysen) ausgewertet und interpretiert werden.
+Zum Abschluss füllten die Teilnehmenden einen Post-Test-Fragebogen aus, welcher unter anderem die Skalen ATI, HCT sowie weitere UX-relevante Maße beinhaltete. Abschließend erfolgte eine Datensichtung und -bereinigung. Die Auswertung und Interpretation der Daten wurde mithilfe inferenzstatistischer Verfahren durchgeführt, darunter t-Tests und Korrelationsanalysen.
 
 ### Stichprobe
 Die Teilnehmenden für die quantitative Befragung wurden über einen Online-Rekrutierungskanal gewonnen, konkret über ein deutschsprachiges Studierendenforum der Universität zu Lübeck. Die dort veröffentlichte Einladung trug den Titel „Online-Studie: Erkennst du Desinformation, wenn du sie siehst? – 1 VP-Stunde MDI & Psychologie“.
 
-Als formale Einschlusskriterien galten ein Mindestalter von 18 Jahren, ausreichende Deutschkenntnisse sowie die Teilnahme über ein Laptop, einen PC oder ein Tablet. Personen, die aktuell in der Lehrveranstaltung SMNF eingeschrieben waren, sowie jene, die über ein Smartphone teilnehmen wollten oder unvollständige Datensätze abgaben, wurden ausgeschlossen.
+Als formale Einschlusskriterien galten ein Mindestalter von 18 Jahren, ausreichende Deutschkenntnisse sowie die Teilnahme über ein Laptop, einen PC oder ein Tablet. Personen, die zum Zeitpunkt der Erhebung in der Lehrveranstaltung SMNF eingeschrieben waren, über ein Smartphone teilnehmen wollten oder unvollständige Datensätze einreichten, wurden ausgeschlossen.
 
-Obwohl die Häufigkeit der Social-Media-Nutzung nicht explizit als Teilnahmevoraussetzung kommuniziert wurde, wurde sie im Fragebogen erfasst (Antwortskala: nie, einmal im Monat oder weniger, mehrmals im Monat, mehrmals pro Woche, täglich).
+Obwohl die Häufigkeit der Social-Media-Nutzung nicht explizit als Teilnahmevoraussetzung kommuniziert worden war, wurde sie im Fragebogen erhoben (Antwortskala: nie, einmal im Monat oder weniger, mehrmals im Monat, mehrmals pro Woche, täglich).
 
-Diese Variable wird im Rahmen der Datenanalyse als Kovariate berücksichtigt, da ein regelmäßiger Kontakt mit sozialen Medien vorausgesetzt wird, um die Einschätzung KI-gestützter Desinformationshinweise realitätsnah bewerten zu können. Zusätzlich wird eine Sensitivitätsanalyse durchgeführt, bei der nur Teilnehmende mit einer Nutzung von mindestens „mehrmals pro Woche“ berücksichtigt werden, um mögliche Verzerrungen durch geringe Exposition zu kontrollieren.
+Diese Variable wurde im Rahmen der Datenanalyse als Kovariate berücksichtigt, da ein regelmäßiger Kontakt mit sozialen Medien als Voraussetzung galt, um die Einschätzung KI-gestützter Desinformationshinweise realitätsnah bewerten zu können. Zusätzlich wurde eine Sensitivitätsanalyse durchgeführt, bei der ausschließlich Teilnehmende mit einer Nutzung von mindestens „mehrmals pro Woche“ berücksichtigt wurden, um potenzielle Verzerrungen durch geringe Medienexposition zu kontrollieren.
 
 ### Erhebungsinstrumente
-Zur Erfassung relevanter psychologischer Konstrukte wurden validierte Skalen eingesetzt. Die Technikaffinität der Teilnehmenden wurde mittels der ATI-Skala (Affinity for Technology Interaction) gemessen (9 Items) [@franke-2018].
-Die Skala wurde zur Dichotomisierung der Stichprobe anhand der Technikaffinität (Median-Split) herangezogen.
+Zur Erfassung relevanter psychologischer Konstrukte setzten wir validierte Skalen ein. Die Technikaffinität der Teilnehmenden wurde mit der ATI-Skala (Affinity for Technology Interaction; 9 Items) nach [@franke-2018] gemessen.
+Diese Skala diente zur Dichotomisierung der Stichprobe anhand eines Median-Splits.
 
-Als Zielvariable für das Vertrauen in KI-gestützte Klassifikation kam die Human-Computer-Trust-Skala (HCT) von @madsen2000 zum Einsatz (15 Items, bestehend aus drei Subskalen: Perceived Reliability, Technical Competence, Understandability). Die interne Konsistenz der Skala wurde überprüft (Cronbach’s α siehe Codebook).
+Als Zielvariable für das Vertrauen in KI-gestützte Klassifikationsprozesse verwendeten wir die Human-Computer-Trust-Skala (HCT) nach @madsen2000, bestehend aus 15 Items, die drei Subskalen abbilden: Perceived Reliability, Technical Competence und Understandability. Die interne Konsistenz der Skala wurde überprüft (Cronbach’s $\alpha$ siehe Codebook).
 
-Zusätzlich wurden weitere Instrumente zur Erfassung von Usability (System Usability Scale, SUS), User Experience (UEQ), subjektivem Workload (DLR-WAT) und Informationsverarbeitungsbewusstsein (SIPA) erhoben, die jedoch im Rahmen dieser Analyse nicht fokussiert ausgewertet werden.
+Darüber hinaus erhoben wir weitere psychometrische Instrumente zur Erfassung von Usability (System Usability Scale, SUS), User Experience (UEQ), subjektiver Arbeitsbelastung (DLR-WAT) sowie Informationsverarbeitungsbewusstsein (SIPA). Diese wurden im Rahmen der vorliegenden Analyse jedoch nicht fokussiert ausgewertet.
 
 ### Datenanalyse
 Zur Beantwortung der zentralen Forschungsfragen sind inferenzstatistische Analysen vorgesehen. 
@@ -164,19 +141,21 @@ Forschungsfrage 1 zielte darauf ab, Unterschiede im Vertrauen gegenüber KI-Syst
 
 Forschungsfrage 2 untersuchte den Zusammenhang zwischen der subjektiv wahrgenommenen Arbeitsbelastung während der Informationsklassifikation (DLR_KI) und dem generellen Vertrauen in die vom KI-System getroffenen Klassifikationen (HCT-Gesamtscore). Da beide Variablen metrisch skaliert sind und kein normalverteiltes Antwortverhalten vorlag, wurde eine nichtparametrische Spearman-Rangkorrelation zur Analyse verwendet.
 
+::: {#tbl-statfragen .table tbl-cap="Statistische Analysen je Fragestellung"}
 | Fragestellung 	| Test 	| UV / Gruppierung 	| AV 	|
 |---	|---	|---	|---	|
-| Unterschied im KI-Vertrauen je Technikaffinität 	| zweiseitiger t-Test (α = .05) 	| ATI dichotomisiert (≥ Median = hoch) 	| HCT-Gesamtscore 	|
+| Unterschied im KI-Vertrauen je Technikaffinität 	| zweiseitiger t-Test ($\alpha$ = .05) 	| ATI dichotomisiert (≥ Median = hoch) 	| HCT-Gesamtscore 	|
 | Zusammenhang zwischen der subjektiv wahrgenommenen Arbeitsbelastung während der Klassifikation und dem gesamten Vertrauen der Nutzer*innen in das KI-System 	| Spearman-Rangkorrelation 	| DLR_KI  (metrisch, 15 Items) 	| HCT-Gesamtscore (metrisch, 15 Items) 	|
+:::
 
-
-Das Signifikanzniveau wird für alle inferenzstatistischen Tests auf α = .05 festgelegt. Zusätzlich sollen Effektstärken (Cohen’s d für den t-Test bzw. Pearson’s r für die Korrelationsanalyse) berechnet werden. Die statistischen Voraussetzungen der Verfahren (Normalverteilung, Varianzhomogenität) werden vor der Analyse überprüft [@shapiro-1965; @levene1960].
+Das Signifikanzniveau wird für alle inferenzstatistischen Tests auf $\alpha$ = .05 festgelegt. Zusätzlich sollen Effektstärken (Cohen’s d für den t-Test bzw. Spearman für die Korrelationsanalyse) berechnet werden. Die statistischen Voraussetzungen der Verfahren (Normalverteilung, Varianzhomogenität) werden vor der Analyse überprüft [@shapiro-1965; @levene1960].
 
 ### Datenanalyse Stichprobe
-Durch eine Online-Umfrage wurde eine Stichprobe von Studierenden (N = 177) rekrutiert. Die Teilnehmenden wurden darüber informiert, dass die Umfrage den Anforderungen der EU-Datenschutz-Grundverordnung (DSGVO) entsprach und alle erhobenen Daten anonymisiert wurden. Zusätzlich wurde die Nutzungshäufigkeit sozialer Medien erhoben, um aktive Nutzerinnen und Nutzer zu identifizieren. Auf dieser Basis wurden vier Personen ausgeschlossen, da ihre Aktivität unterhalb des definierten Grenzwerts lag (smfrequency < 3). Dies stellte sicher, dass die Stichprobe die Zielgruppe der regelmäßigen Social-Media-Nutzer*innen korrekt abbildet (M = 4,9, Mdn = 5, SD = 0,4). Daher wurden insgesamt n = 172 in die weitere Analyse einbezogen. Das Durchschnittsalter der Stichprobe betrug M = 25,8 Jahre (Mdn = 22, SD = 10,4).
+Durch eine Online-Umfrage wurde eine Stichprobe von Studierenden (*N* = 177) rekrutiert. Die Teilnehmenden wurden darüber informiert, dass die Umfrage den Anforderungen der EU-Datenschutz-Grundverordnung (DSGVO) entsprach und alle erhobenen Daten anonymisiert wurden. Zusätzlich wurde die Nutzungshäufigkeit sozialer Medien erhoben, um aktive Nutzerinnen und Nutzer zu identifizieren. Auf dieser Basis wurden vier Personen ausgeschlossen, da ihre Aktivität unterhalb des definierten Grenzwerts lag (Variable: *smfrequency* >= 3; Item: Nutzungshäufigkeit von Social Media [1 = nie, 5 = täglich]). Dies stellte sicher, dass die Stichprobe die Zielgruppe der regelmäßigen Social-Media-Nutzer\*innen korrekt abbildet (*M* = 4,9, *Mdn* = 5, *SD* = 0,4). Daher wurden insgesamt *N* = 172 in die weitere Analyse einbezogen. Das Durchschnittsalter der Stichprobe betrug *M* = 25,8 Jahre (*Mdn* = 22, *SD* = 10,4).
 
 ### Deskriptive Ergebnisse
-Die deskriptiven Kennwerte der für die Analyse relevanten Variablen sind in Tabelle 3 dargestellt. Die Skalen weisen durchweg zufriedenstellende interne Konsistenzen auf (Cronbachs Alpha ≥ 0.80).  
+Die deskriptiven Kennwerte der für die Analyse relevanten Variablen sind in Tabelle 3 dargestellt. Die Skalen weisen durchweg zufriedenstellende interne Konsistenzen auf (Cronbachs $\alpha \ge 0{,}80$). 
+
 ```{r}
 #| child: "quantitative results.qmd"
 ```
@@ -185,7 +164,19 @@ Die deskriptiven Kennwerte der für die Analyse relevanten Variablen sind in Tab
 ### Inferenzstatistik 
 Um mögliche gruppenspezifische Unterschiede im Vertrauen in KI-Tools zu analysieren, wurde ein zweiseitiger t-Test für unabhängige Stichproben durchgeführt. Die Technikaffinität (ATI) wurde anhand des Medians der Stichprobe in zwei Gruppen unterteilt: Teilnehmende mit einem ATI-Wert über dem Median wurden der Gruppe mit hoher Technikaffinität zugeordnet, während Personen mit einem ATI-Wert unterhalb des Medians in der Gruppe mit niedriger Technikaffinität erfasst wurden. Diese Gruppeneinteilung stellt sicher, dass die Analyse auf einer gleichmäßigen Verteilung der Technikaffinität basiert. 
 
-Die Differenz der durchschnittlichen Vertrauenswerte in KI-Technologien (HCT) zwischen Personen mit hoher Technikaffinität (M = 5,0, SD = 0,0, n = 90) und niedriger Technikaffinität (M = 4,7, SD = 0,5, n = 82) war signifikant (t(170) = 5,42, p < .001, d = 0,87). Dies deutet darauf hin, dass Technikaffinität zwar einen Einfluss auf das Vertrauen in KI haben könnte, jedoch ist die praktische Bedeutung dieses Unterschieds fraglich. Die berechnete Effektstärke nach [@cohen-1988] beträgt d = 0,87, was auf einen großen Effekt hinweist. Allerdings zeigt die visuelle Analyse der Daten (Abbildung 1), dass die Mittelwerte beider Gruppen nah beieinander liegen, was darauf hindeutet, dass der berechnete starke Effekt durch die geringe Streuung beeinflusst, wurde.  
+```{r}
+#| label: fig-dot
+#| fig-cap: "Vertrauen (HCT) in Abhängigkeit von Technikaffinität"
+#| fig-alt: "Dot-and-Whisker-Plot"
+#| echo: false
+ggplot(plot_t, aes(x = ATI_group, y = mean)) +
+  geom_point(size = 4) +
+  geom_errorbar(aes(ymin = mean - se, ymax = mean + se), width = .2) +
+  labs(x = "Technikaffinität", y = "HCT-Gesamtscore") +
+  theme_minimal()
+```
+
+Die Differenz der durchschnittlichen Vertrauenswerte in KI-Technologien (HCT) zwischen Personen mit hoher Technikaffinität (*M* = 5,0, *SD* = 0,0, n = 90) und niedriger Technikaffinität (*M* = 4,7, *SD* = 0,5, n = 82) war signifikant (t(170) = 5,42, p < .001, d = 0,87). Dies deutet darauf hin, dass Technikaffinität zwar einen Einfluss auf das Vertrauen in KI haben könnte, jedoch ist die praktische Bedeutung dieses Unterschieds fraglich. Die berechnete Effektstärke nach [@cohen-1988] beträgt d = 0,87, was auf einen großen Effekt hinweist. Allerdings zeigt die visuelle Analyse der Daten (@fig-dot), dass die Mittelwerte beider Gruppen nah beieinander liegen, was darauf hindeutet, dass der berechnete starke Effekt durch die geringe Streuung beeinflusst, wurde.  
 
 In der Gruppe mit hoher Technikaffinität (n = 90) wurde eine Standardabweichung von 0 angegeben, was bedeutet, dass alle Teilnehmer exakt denselben Wert von 5,0 angegeben haben. Dies kann methodische Konsequenzen haben: 
 
@@ -193,7 +184,21 @@ Ein t-Test setzt voraus, dass beide Gruppen eine gewisse Streuung aufweisen. Ein
 
 Wenn der wahre Effekt klein ist, könnte eine größere Stichprobe helfen, ihn klarer nachzuweisen. 
 
-Die grafische Darstellung (Abbildung 2) zeigt die Zusammenhänge zwischen der subjektiven Arbeitsbelastung durch KI (DLR_KI) und dem generellen Vertrauen in die Klassifikationen des KI-Systems (HCT-Gesamtscore). Dabei sind die Werte beider Variablen als Einzelpunkte in einem Streudiagramm dargestellt. Die x-Achse repräsentiert die subjektiv wahrgenommene Arbeitsbelastung nach der Nutzung der KI, während die y-Achse das generelle Vertrauen in die Klassifikationen des Systems widerspiegelt. 
+```{r}
+#| label: fig-scat
+#| fig-cap: "Zusammenhang Workload und Gesamtvertrauen"
+#| fig-alt: "Scatter-Plot mit Regressionslinie"
+#| fig-env: figure
+#| fig-pos: H
+#| echo: false
+ggplot(data, aes(x = DLR_KI, y = HCT)) +
+  geom_point(alpha = .6) +
+  geom_smooth(method = "lm", formula = y ~ x, se = FALSE) +
+  labs(x = "DLR-Workload (KI)", y = "HCT-Gesamtscore") +
+  theme_minimal()
+```
+
+Die grafische Darstellung (@fig-scat) zeigt die Zusammenhänge zwischen der subjektiven Arbeitsbelastung durch KI (DLR_KI) und dem generellen Vertrauen in die Klassifikationen des KI-Systems (HCT-Gesamtscore). Dabei sind die Werte beider Variablen als Einzelpunkte in einem Streudiagramm dargestellt. Die x-Achse repräsentiert die subjektiv wahrgenommene Arbeitsbelastung nach der Nutzung der KI, während die y-Achse das generelle Vertrauen in die Klassifikationen des Systems widerspiegelt. 
 
 Zusätzlich zeigt die Abbildung eine Regressionslinie, die mögliche Zusammenhänge zwischen den beiden Variablen visualisiert. Die breite Streuung der Datenpunkte sowie der nahezu horizontale Verlauf dieser Linie deuten darauf hin, dass kein klarer Zusammenhang zwischen beiden Faktoren besteht. Das bedeutet, dass eine höhere mentale Belastung während der Informationsklassifikation nicht zwingend mit einem geringeren Vertrauen in das KI-System einhergeht. 
 
@@ -204,6 +209,23 @@ Zur Wahrung der Anonymität wurde für die Vergabe der Versuchspersonenstunden e
 
 
 # Diskussion
+Die Studie leistet einen empirischen Beitrag zur Beantwortung der zentralen Forschungsfrage, welche Faktoren das Vertrauen von Nutzer*innen in KI-gestützte Misinformation-Detection-Tools beeinflussen. Die Ergebnisse der qualitativen und quantitativen Analysen zeigen, dass Vertrauen nicht monokausal entsteht, sondern durch ein Zusammenspiel technischer, funktionaler und sozialer Faktoren geprägt wird. Insbesondere Merkmale wie Transparenz, Neutralität, Nutzerkontrolle und eine klar geregelte Verantwortungsstruktur erwiesen sich in den Interviews als entscheidend für die Vertrauensbildung. Auch die quantitative Befragung unterstreicht die Relevanz psychologischer Konstrukte wie Technikaffinität und subjektiver Arbeitsbelastung, wenngleich erwartete Zusammenhänge nicht durchweg empirisch belegt werden konnten.
+
+Die Bedeutung dieser Befunde für die zentrale Fragestellung liegt in der Differenzierung des Vertrauensbegriffs und seiner operationalisierbaren Komponenten im Kontext KI-basierter Entscheidungsfindung. Indem sowohl individuelle Bewertungen als auch systemische Rahmenbedingungen einbezogen wurden, ermöglicht die Studie ein ganzheitlicheres Verständnis davon, unter welchen Bedingungen Nutzer*innen algorithmischen Systemen Vertrauen schenken. Damit werden nicht nur technische Aspekte adressiert, sondern auch soziale und ethische Anforderungen an die Systemgestaltung sichtbar gemacht.
+
+Für die wissenschaftliche Diskussion ergeben sich daraus weitreichende Implikationen. Die Ergebnisse demonstrieren, dass Vertrauen als soziotechnisches Phänomen verstanden werden muss, das kontextabhängig variiert und durch wahrgenommene Kontrolle, Transparenz und institutionelle Einbettung beeinflusst wird. Dies unterstreicht die Notwendigkeit interdisziplinärer Evaluationsstandards, die über rein technische Performanzkriterien hinausgehen und ethische, nutzerzentrierte sowie soziale Faktoren systematisch integrieren. Dies stellt eine Herausforderung für die Forschung dar, da Vertrauen nicht eindimensional messbar ist, sondern durch multiple Indikatoren beschrieben werden sollte. Zukünftige Studien könnten hier ansetzen und differenziertere Messinstrumente entwickeln, die das Zusammenspiel technischer und sozialer Faktoren systematisch erfassen.
+
+Auch für die Gesellschaft ergeben sich wichtige Implikationen. In einer digitalen Informationsumgebung, die zunehmend durch KI kuratiert wird, sind Nutzerinnen auf verlässliche, nachvollziehbare und ethisch fundierte Klassifikationssysteme angewiesen. Gerade im Kampf gegen Desinformation, die demokratische Diskurse unterminieren kann, spielen vertrauenswürdige technische Lösungen eine zentrale Rolle. Die Studie zeigt jedoch, dass bloße Effizienz nicht genügt - vielmehr müssen Systeme so gestaltet werden, dass Nutzer*innen ihre Funktionsweise verstehen und sich nicht entmündigt fühlen. Dies verlangt nach gestalterischer Sensibilität und partizipativer Technikentwicklung, bei der Bedürfnisse und Erwartungen der Zielgruppen ernst genommen werden.
+
+## Methodenkritische Einordnung und zukünftige Forschungsansätze
+Gleichzeitig weist die Studie drei zentrale Limitationen auf. Erstens besteht eine Stichprobenproblematik, da die qualitative Analyse auf nur zwei Interviews aus dem studentischen Milieu basiert, während die quantitative Erhebung (N=172) durch Convenience-Sampling (Studierendenforen/persönliche Netzwerke) eine überwiegend junge, digital affine Gruppe erfasste. Dies limitiert die Generalisierbarkeit der Ergebnisse. Zweitens gab es methodische Vereinfachungen, etwa die Verwendung eines Median-Splits für Gruppenvergleiche (t-Tests), die Varianz artifiziell reduziert. Zudem wurde die inferenzstatistische Analyse durch fehlende Streuung (SD=0) in einer Gruppe eingeschränkt. Drittens erfolgte eine statische Betrachtung, da die neuntägige Erhebungsphase Vertrauen lediglich als Momentaufnahme erfasste, obwohl es sich dynamisch durch wiederholte Interaktionen entwickelt.
+
+Für zukünftige Forschung ergeben sich daraus drei Handlungsstränge. Erstens sollte eine Stichprobenvalidierung durch gezielte Rekrutierung diverser Alters- und Berufsgruppen via Online-Panels oder Community-Partizipation angestrebt werden. Zweitens sind Methodeninnovationen notwendig, insbesondere Längsschnittdesigns zur Erfassung dynamischer Vertrauensprozesse sowie die Vermeidung von Median-Splits zugunsten kontinuierlicher Analysemodelle. Drittens sollte die Systemgestaltung experimentell untersucht werden, beispielsweise durch erweiterte Erklärformate (visuell, personalisiert) unter realistischeren Nutzungsbedingungen.
+
+## Fazit
+Insgesamt liefert die Studie wertvolle Impulse für Forschung und Praxis zur vertrauensfördernden Gestaltung von KI-Systemen im Kontext der digitalen Desinformationsbekämpfung. Sie unterstreicht, dass Vertrauen weder vorausgesetzt noch automatisiert hergestellt werden kann, sondern durch sorgfältig konzipierte soziotechnische Arrangements aktiv gefördert werden muss. Die identifizierten Limitationen verdeutlichen zugleich den Bedarf an robusteren Designs, um das Verständnis von Vertrauensbildung in KI-Systemen weiter zu vertiefen.
+
+
 
 # Code of Conduct
 
